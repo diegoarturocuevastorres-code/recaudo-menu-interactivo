@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menú Vivo · Recaudo</title>
+<meta name="description" content="Menú Vivo: un menú que cambia con las cosechas, los productores y las posibilidades de cada temporada. Prototipo conceptual para Recaudo, San Andrés Cholula, Puebla.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Karla:ital,wght@0,300..700;1,400..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#F4EFE3;
+  --crema-2:#EBE3D2;
+  --olivo:#4A5733;
+  --olivo-hondo:#2E3721;
+  --terracota:#B0542F;
+  --cafe:#33261C;
+  --maiz:#E3B03F;
+  --tinta:#221A13;
+  --tinta-suave:#5E5245;
+  --linea:rgba(51,38,28,.16);
+  --r-s:6px;
+  --r-m:14px;
+  --r-l:26px;
+  --sombra:0 18px 44px -28px rgba(46,55,33,.55);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Karla","Helvetica Neue",Arial,sans-serif;
+  --ancho:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--crema);color:var(--tinta);
+  font-family:var(--sans);font-size:17px;line-height:1.65;font-weight:400;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3,h4,.t3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.015em}
+h1{font-size:clamp(2.6rem,6.4vw,5rem);font-variation-settings:"SOFT" 20,"opsz" 120}
+h2{font-size:clamp(2rem,4.2vw,3.25rem)}
+h3,.t3{font-size:1.32rem;line-height:1.2;display:block}
+p{margin:0 0 1em}
+.envoltura{width:100%;max-width:var(--ancho);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+.seccion{padding-block:clamp(72px,10vw,124px)}
+.hoja{color:var(--crema);background:var(--olivo-hondo)}
+.hoja h2,.hoja h3{color:var(--crema)}
+.hoja p{color:rgba(244,239,227,.78)}
+:focus-visible{outline:3px solid var(--maiz);outline-offset:3px;border-radius:3px}
+
+/* ---------- tipografía de apoyo ---------- */
+.intro{max-width:46ch;font-size:1.06rem;color:var(--tinta-suave)}
+.hoja .intro{color:rgba(244,239,227,.75)}
+.rotulo{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--terracota);margin:0 0 .9rem}
+.hoja .rotulo{color:var(--maiz)}
+.encabezado-seccion{display:grid;gap:22px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+@media(max-width:820px){.encabezado-seccion{grid-template-columns:1fr;align-items:start}}
+
+/* ---------- botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;border:1px solid transparent;
+  padding:.85rem 1.5rem;border-radius:999px;font-weight:600;font-size:.97rem;
+  text-decoration:none;transition:transform .18s ease,background .2s ease,color .2s ease,border-color .2s ease;
+}
+.btn-solido{background:var(--olivo);color:var(--crema)}
+.btn-solido:hover{background:var(--olivo-hondo);transform:translateY(-2px)}
+.btn-linea{border-color:var(--olivo);color:var(--olivo)}
+.btn-linea:hover{background:rgba(74,87,51,.09);transform:translateY(-2px)}
+.btn-maiz{background:var(--maiz);color:var(--cafe)}
+.btn-maiz:hover{background:#d9a52e;transform:translateY(-2px)}
+
+/* ---------- navegación ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(244,239,227,.9);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+.nav.fija{border-color:var(--linea)}
+.nav-fila{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca img{height:38px;width:auto}
+.marca-txt{font-family:var(--serif);font-size:1.22rem;line-height:1}
+.marca-txt small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{text-decoration:none;font-size:.95rem;color:var(--tinta-suave);position:relative;padding-block:4px}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--terracota);transition:width .25s ease}
+.nav-links a:hover{color:var(--tinta)}
+.nav-links a:hover::after{width:100%}
+.hamburguesa{display:none;background:none;border:1px solid var(--linea);border-radius:999px;padding:.55rem .9rem;align-items:center;gap:.5rem}
+.hamburguesa span{display:block;width:18px;height:1.5px;background:var(--tinta);position:relative}
+.hamburguesa span::before,.hamburguesa span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--tinta);transition:transform .25s ease}
+.hamburguesa span::before{top:-5px}.hamburguesa span::after{top:5px}
+.nav.abierto .hamburguesa span{background:transparent}
+.nav.abierto .hamburguesa span::before{transform:translateY(5px) rotate(45deg)}
+.nav.abierto .hamburguesa span::after{transform:translateY(-5px) rotate(-45deg)}
+@media(max-width:900px){
+  .hamburguesa{display:inline-flex}
+  .nav-links{position:absolute;left:0;right:0;top:74px;flex-direction:column;align-items:flex-start;gap:0;background:var(--crema);border-bottom:1px solid var(--linea);max-height:0;overflow:hidden;transition:max-height .32s ease}
+  .nav.abierto .nav-links{max-height:400px}
+  .nav-links a{width:100%;padding:16px clamp(20px,5vw,40px);border-top:1px solid var(--linea);font-size:1.05rem}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-top:clamp(40px,6vw,66px);padding-bottom:clamp(60px,8vw,96px)}
+.hero-rejilla{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(30px,5vw,64px);align-items:center}
+.hero h1{margin-bottom:22px}
+.hero h1 em{font-style:italic;font-variation-settings:"SOFT" 40}
+.hero .intro{font-size:1.15rem;max-width:40ch}
+.hero-botones{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.temporada{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:26px;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olivo);font-weight:600}
+.pulso{width:9px;height:9px;border-radius:50%;background:var(--terracota);position:relative}
+.pulso::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--terracota);opacity:.5;animation:late 2.6s ease-out infinite}
+@keyframes late{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.hero-foto{position:relative;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/5}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.sello{
+  position:absolute;left:-26px;bottom:38px;width:132px;height:132px;border-radius:50%;
+  background:var(--crema);color:var(--olivo-hondo);display:grid;place-items:center;text-align:center;
+  box-shadow:0 10px 30px -14px rgba(0,0,0,.4);padding:14px;
+}
+.sello b{font-family:var(--serif);display:block;font-size:1.5rem;font-weight:500;line-height:1}
+.sello span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);display:block;margin-top:6px}
+@media(max-width:860px){
+  .hero-rejilla{grid-template-columns:1fr}
+  .hero-foto{aspect-ratio:3/4;order:-1}
+  .sello{left:auto;right:14px;bottom:14px;width:108px;height:108px}
+}
+
+/* ---------- pasos ---------- */
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,34px);counter-reset:paso}
+@media(max-width:860px){.pasos{grid-template-columns:1fr}}
+.paso{border-top:1px solid rgba(244,239,227,.28);padding-top:26px}
+.paso .icono{width:46px;height:46px;margin-bottom:20px;color:var(--maiz)}
+.paso h3{margin-bottom:10px}
+.paso .num{font-family:var(--serif);font-size:.9rem;color:var(--maiz);display:block;margin-bottom:14px}
+
+/* ---------- filtros + menú ---------- */
+.filtros{display:grid;gap:18px;margin-bottom:38px;border-block:1px solid var(--linea);padding-block:22px}
+.grupo-filtro{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.grupo-filtro>span{font-size:.8rem;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-suave);min-width:104px}
+.chip{background:transparent;border:1px solid var(--linea);border-radius:999px;padding:.44rem 1rem;font-size:.9rem;color:var(--tinta-suave);transition:all .2s ease}
+.chip:hover{border-color:var(--olivo);color:var(--olivo)}
+.chip[aria-pressed="true"]{background:var(--olivo);border-color:var(--olivo);color:var(--crema)}
+.rejilla-menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:clamp(20px,2.6vw,32px)}
+.platillo{
+  background:#fff;border-radius:var(--r-m);overflow:hidden;text-align:left;padding:0;border:1px solid rgba(51,38,28,.08);
+  display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease;width:100%;
+}
+.platillo:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.platillo:hover .platillo-foto img{transform:scale(1.04)}
+.platillo-foto{aspect-ratio:5/4;overflow:hidden;position:relative;background:var(--crema-2)}
+.platillo-foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.etiqueta{position:absolute;top:12px;left:12px;background:rgba(244,239,227,.94);color:var(--olivo-hondo);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;font-weight:600}
+.platillo-cuerpo{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
+.platillo-cuerpo .dsc{display:block;font-size:.95rem;color:var(--tinta-suave)}
+.meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--linea);display:grid;gap:5px;font-size:.87rem}
+.meta b{font-weight:600}
+.meta .productor{color:var(--terracota)}
+.precio{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.vacio{padding:46px 0;text-align:center;color:var(--tinta-suave)}
+
+/* ---------- modal ---------- */
+.telon{position:fixed;inset:0;z-index:90;background:rgba(34,26,19,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:18px}
+.telon.visible{display:flex}
+.modal{background:var(--crema);border-radius:var(--r-l);max-width:900px;width:100%;max-height:92vh;overflow:auto;position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);animation:sube .3s ease}
+@keyframes sube{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+.modal-foto{min-height:100%;background:var(--crema-2)}
+.modal-foto img{width:100%;height:100%;object-fit:cover;min-height:240px}
+.modal-cuerpo{padding:clamp(26px,3.4vw,42px)}
+.modal-cuerpo h3{font-size:1.9rem;margin-bottom:8px}
+.cerrar{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;background:var(--crema);color:var(--tinta);font-size:1.3rem;line-height:1;display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(0,0,0,.4)}
+.ficha{display:grid;gap:14px;margin-top:22px;padding-top:20px;border-top:1px solid var(--linea)}
+.ficha div{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:.94rem;align-items:baseline}
+.ficha dt,.ficha .k{color:var(--tinta-suave);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:760px){.modal{grid-template-columns:1fr}.modal-foto img{max-height:230px}.ficha div{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- mapa ---------- */
+.mapa-envoltura{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:clamp(24px,3.4vw,44px);align-items:start}
+@media(max-width:900px){.mapa-envoltura{grid-template-columns:1fr}}
+.lienzo{position:relative;border-radius:var(--r-l);overflow:hidden;background:#3A4529;aspect-ratio:16/11}
+.lienzo svg{width:100%;height:100%;display:block}
+.punto{position:absolute;transform:translate(-50%,-50%);background:none;border:none;padding:0;display:grid;place-items:center}
+.punto i{display:block;width:15px;height:15px;border-radius:50%;background:var(--maiz);box-shadow:0 0 0 0 rgba(227,176,63,.55);transition:transform .2s ease,box-shadow .3s ease}
+.punto:hover i,.punto[aria-pressed="true"] i{transform:scale(1.3);box-shadow:0 0 0 10px rgba(227,176,63,.2)}
+.punto[aria-pressed="true"] i{background:var(--terracota);box-shadow:0 0 0 10px rgba(176,84,47,.22)}
+.punto b{position:absolute;top:22px;white-space:nowrap;font-size:.8rem;font-weight:500;color:var(--crema);background:rgba(46,55,33,.7);padding:.18rem .55rem;border-radius:999px}
+.tarjeta-productor{background:var(--crema);color:var(--tinta);border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sombra)}
+.tarjeta-productor img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.tarjeta-productor .txt{padding:24px}
+.tarjeta-productor h3{margin-bottom:4px}
+.tarjeta-productor .lugar{color:var(--terracota);font-size:.9rem;margin-bottom:12px}
+.tarjeta-productor p{font-size:.95rem;color:var(--tinta-suave);margin:0}
+
+/* ---------- nopal ---------- */
+.nopal{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,56px);align-items:center}
+@media(max-width:900px){.nopal{grid-template-columns:1fr}}
+.lista-nopal{display:grid;gap:2px;margin:26px 0 0;padding:0;list-style:none}
+.lista-nopal button{width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--linea);padding:15px 8px 15px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--serif);font-size:1.22rem;color:var(--tinta-suave);transition:color .2s ease,padding .25s ease}
+.lista-nopal li:last-child button{border-bottom:1px solid var(--linea)}
+.lista-nopal button:hover{color:var(--tinta);padding-left:8px}
+.lista-nopal button[aria-selected="true"]{color:var(--terracota);padding-left:8px}
+.lista-nopal button[aria-selected="true"] .marca-sel{opacity:1;transform:none}
+.marca-sel{opacity:0;transform:translateX(-6px);transition:all .25s ease;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+.escena-nopal{position:relative;border-radius:var(--r-l);overflow:hidden;aspect-ratio:1/1;box-shadow:var(--sombra);background:var(--crema-2)}
+.escena-nopal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.escena-nopal img.activa{opacity:1}
+.pie-nopal{position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(34,26,19,.82),transparent);color:var(--crema)}
+.pie-nopal h3{color:var(--crema);margin-bottom:6px}
+.pie-nopal p{color:rgba(244,239,227,.82);font-size:.94rem;margin:0}
+
+/* ---------- calendario ---------- */
+.tira{display:flex;gap:16px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tira::-webkit-scrollbar{height:5px}
+.tira::-webkit-scrollbar-thumb{background:rgba(244,239,227,.3);border-radius:9px}
+.mes{flex:0 0 190px;scroll-snap-align:start;border:1px solid rgba(244,239,227,.2);border-radius:var(--r-m);padding:20px;transition:background .25s ease,border-color .25s ease}
+.mes:hover{background:rgba(244,239,227,.06)}
+.mes h3{font-size:1.15rem;margin-bottom:12px}
+.mes ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:.92rem;color:rgba(244,239,227,.74)}
+.mes.actual{background:var(--maiz);border-color:var(--maiz)}
+.mes.actual h3,.mes.actual ul{color:var(--cafe)}
+.mes.actual .aqui{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(51,38,28,.65);display:block;margin-top:14px}
+
+/* ---------- participa ---------- */
+.participa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(30px,4vw,60px);align-items:start}
+@media(max-width:900px){.participa{grid-template-columns:1fr}}
+.votos{display:grid;gap:12px;margin:26px 0}
+.voto{position:relative;border:1px solid var(--linea);border-radius:var(--r-m);padding:14px 18px;background:#fff;display:flex;align-items:center;gap:14px;overflow:hidden;transition:border-color .2s ease}
+.voto:hover{border-color:var(--olivo)}
+.voto[aria-pressed="true"]{border-color:var(--terracota)}
+.barra{position:absolute;inset:0 auto 0 0;width:0;background:rgba(227,176,63,.28);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.voto span{position:relative}
+.voto .nombre{font-weight:600;flex:1;text-align:left}
+.voto .pct{color:var(--tinta-suave);font-size:.9rem;opacity:0;transition:opacity .4s ease}
+.resultados .pct{opacity:1}
+.hoja-voto{background:#fff;border-radius:var(--r-l);padding:clamp(24px,3vw,34px)}
+.confirmacion{margin-top:18px;padding:14px 18px;border-radius:var(--r-m);background:rgba(74,87,51,.1);color:var(--olivo-hondo);font-size:.95rem;display:none}
+.confirmacion.visible{display:block}
+.campo{display:flex;gap:10px;margin-top:14px}
+.campo input{flex:1;min-width:0;border:1px solid var(--linea);background:var(--crema);border-radius:999px;padding:.82rem 1.2rem;font:inherit;font-size:.95rem}
+.campo input:focus{outline:none;border-color:var(--olivo)}
+.conmutador{display:inline-flex;background:var(--crema);border-radius:999px;padding:4px;gap:4px;margin-top:6px}
+.conmutador button{border:none;background:none;border-radius:999px;padding:.4rem 1rem;font-size:.9rem;color:var(--tinta-suave)}
+.conmutador button[aria-pressed="true"]{background:var(--olivo);color:var(--crema)}
+.nota{font-size:.84rem;color:var(--tinta-suave);margin-top:14px}
+
+/* ---------- impacto ---------- */
+.impacto{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px);margin-top:44px}
+@media(max-width:800px){.impacto{grid-template-columns:1fr}}
+.indicador{border:1px solid var(--linea);border-radius:var(--r-m);padding:28px;background:#fff}
+.indicador h3{margin-bottom:8px}
+.indicador .estado{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--terracota);display:block;margin-bottom:12px}
+.indicador p{font-size:.94rem;color:var(--tinta-suave);margin:0}
+.franja-impacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,4vw,54px);align-items:center}
+@media(max-width:860px){.franja-impacto{grid-template-columns:1fr}}
+.franja-impacto img{border-radius:var(--r-l);aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* ---------- footer ---------- */
+footer{background:var(--cafe);color:var(--crema);padding-block:64px 34px}
+.pie-rejilla{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:34px}
+@media(max-width:760px){.pie-rejilla{grid-template-columns:1fr}}
+footer h3{color:var(--crema);font-size:1.8rem;margin-bottom:8px}
+footer p{color:rgba(244,239,227,.7);font-size:.95rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+footer a{color:rgba(244,239,227,.78);text-decoration:none;font-size:.95rem}
+footer a:hover{color:var(--maiz)}
+.titulo-pie{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,227,.45);margin-bottom:16px}
+.aviso{margin-top:46px;padding-top:22px;border-top:1px solid rgba(244,239,227,.18);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.85rem;color:rgba(244,239,227,.55)}
+
+/* ---------- entradas al hacer scroll ---------- */
+.aparece{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.aparece.dentro{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .aparece{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- marcador de imagen faltante ---------- */
+.falta{display:grid;place-content:center;gap:6px;text-align:center;padding:18px;width:100%;height:100%;min-height:150px;
+  background:repeating-linear-gradient(135deg,var(--crema-2) 0 12px,#e2d8c3 12px 24px);color:var(--tinta-suave);font-size:.8rem}
+.falta b{font-family:var(--serif);font-size:1rem;color:var(--cafe)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="envoltura nav-fila">
+    <a class="marca" href="#inicio">
+      <img src="logo.png" alt="Recaudo">
+      <span class="marca-txt">Recaudo<small>Menú Vivo</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Secciones">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#menu">Esta semana</a>
+      <a href="#mapa">Productores</a>
+      <a href="#nopal">Un ingrediente</a>
+      <a href="#calendario">Temporadas</a>
+      <a href="#participa">Participa</a>
+    </nav>
+    <button class="hamburguesa" id="btnMenu" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú"><span></span></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<main id="inicio">
+<section class="hero envoltura">
+  <div class="hero-rejilla">
+    <div>
+      <span class="temporada"><span class="pulso"></span>Temporada actual · Septiembre</span>
+      <h1>Lo que da la tierra,<br><em>llega a tu mesa.</em></h1>
+      <p class="intro">Descubre un menú que cambia con las cosechas, los productores y las posibilidades de cada temporada.</p>
+      <div class="hero-botones">
+        <a class="btn btn-solido" href="#menu">Explorar el menú vivo</a>
+        <a class="btn btn-linea" href="#mapa">Conocer a los productores</a>
+      </div>
+    </div>
+    <figure class="hero-foto" style="margin:0">
+      <img src="i1.jpg" alt="Composición de ingredientes locales de temporada: setas, nopales, jitomates, chiles, maíz y hierbas frescas">
+      <figcaption class="sello"><span><b>Menú<br>Vivo</b><span>Cosecha de hoy</span></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section class="seccion hoja" id="como-funciona">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">Así funciona el Menú Vivo</p>
+        <h2>El menú se escribe tres veces: en el campo, en la cocina y en la mesa.</h2>
+      </div>
+      <p class="intro">No partimos de una carta fija. Partimos de lo que hay. Cada semana revisamos con nuestros productores qué está listo para cortarse y a partir de ahí decidimos qué se cocina.</p>
+    </div>
+    <div class="pasos">
+      <article class="paso aparece">
+        <span class="num">Primero</span>
+        <svg class="icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M24 42V24c0-8 6-14 14-14 0 9-6 15-14 16" stroke-linecap="round"/>
+          <path d="M24 30c-1-7-6-11-13-11 0 6 5 11 11 11" stroke-linecap="round"/>
+          <path d="M14 42h20" stroke-linecap="round"/>
+        </svg>
+        <h3>El campo marca el ritmo</h3>
+        <p>Identificamos qué ingredientes están disponibles con nuestros productores.</p>
+      </article>
+      <article class="paso aparece">
+        <span class="num">Después</span>
+        <svg class="icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M8 22h32c0 8-7 13-16 13S8 30 8 22Z" stroke-linejoin="round"/>
+          <path d="M6 40h36" stroke-linecap="round"/>
+          <path d="M20 16c0-3 4-3 4-6M28 16c0-3 3-3 3-5" stroke-linecap="round"/>
+        </svg>
+        <h3>La cocina crea algo nuevo</h3>
+        <p>El equipo transforma esos ingredientes en platillos especiales.</p>
+      </article>
+      <article class="paso aparece">
+        <span class="num">Al final</span>
+        <svg class="icono" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="24" cy="24" r="16"/>
+          <circle cx="24" cy="24" r="8"/>
+          <path d="M40 8 34 14" stroke-linecap="round"/>
+        </svg>
+        <h3>Tú descubres la temporada</h3>
+        <p>Conoces el origen, la historia y el sabor de cada propuesta antes de probarla.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENÚ ===== -->
+<section class="seccion" id="menu">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">Esta semana en Recaudo</p>
+        <h2>Lo que hoy está dando el campo poblano.</h2>
+      </div>
+      <p class="intro">Filtra por momento del día, por ingrediente o por la persona que lo cultiva. Toca cualquier platillo para leer su historia completa.</p>
+    </div>
+
+    <div class="filtros aparece" id="filtros">
+      <div class="grupo-filtro" data-grupo="momento">
+        <span>Momento</span>
+        <button class="chip" data-valor="todo" aria-pressed="true">Todo</button>
+        <button class="chip" data-valor="desayunos" aria-pressed="false">Desayunos</button>
+        <button class="chip" data-valor="comidas" aria-pressed="false">Comidas</button>
+      </div>
+      <div class="grupo-filtro" data-grupo="ingrediente">
+        <span>Ingredientes</span>
+        <button class="chip" data-valor="todo" aria-pressed="true">Todos</button>
+        <button class="chip" data-valor="Setas" aria-pressed="false">Setas</button>
+        <button class="chip" data-valor="Nopal" aria-pressed="false">Nopal</button>
+        <button class="chip" data-valor="Huevo" aria-pressed="false">Huevo</button>
+        <button class="chip" data-valor="Quinoa" aria-pressed="false">Quinoa</button>
+        <button class="chip" data-valor="Chía" aria-pressed="false">Chía</button>
+        <button class="chip" data-valor="Chícharo" aria-pressed="false">Chícharo</button>
+      </div>
+      <div class="grupo-filtro" data-grupo="productor">
+        <span>Productores</span>
+        <button class="chip" data-valor="todo" aria-pressed="true">Todos</button>
+        <button class="chip" data-valor="Cuanala" aria-pressed="false">Cuanala</button>
+        <button class="chip" data-valor="Tepeyahualco" aria-pressed="false">Tepeyahualco</button>
+        <button class="chip" data-valor="San Francisco Totimehuacan" aria-pressed="false">Totimehuacan</button>
+        <button class="chip" data-valor="San Francisco Acatepec" aria-pressed="false">Acatepec</button>
+        <button class="chip" data-valor="Huertas de Cholula" aria-pressed="false">Huertas de Cholula</button>
+      </div>
+    </div>
+
+    <div class="rejilla-menu" id="rejillaMenu"></div>
+    <p class="vacio" id="vacio" hidden>No hay platillos con esa combinación. Cambia un filtro para ver el resto de la cosecha.</p>
+  </div>
+</section>
+
+<!-- ===== MAPA ===== -->
+<section class="seccion hoja" id="mapa">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">Del productor a tu mesa</p>
+        <h2>Cuatro comunidades a menos de una hora de Cholula.</h2>
+      </div>
+      <p class="intro">Un mapa ilustrativo de la región. Toca cada punto para conocer a quien siembra, cría o recolecta lo que llega a la cocina.</p>
+    </div>
+    <div class="mapa-envoltura">
+      <div class="lienzo aparece" id="lienzo">
+        <svg viewBox="0 0 800 550" aria-hidden="true">
+          <defs>
+            <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#46522F"/><stop offset="100%" stop-color="#36402A"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="550" fill="url(#cielo)"/>
+          <path d="M0 330c90-70 150 40 250-10s150-90 240-40 190-10 310-70v340H0Z" fill="#3E4A2C" opacity=".9"/>
+          <path d="M0 400c120-50 190 30 300 0s190-60 300-20 160 0 200-20v190H0Z" fill="#45522F"/>
+          <path d="M120 300c40-90 70-120 95-120s60 35 95 120Z" fill="#5A6640" opacity=".85"/>
+          <path d="M180 300c22-52 40-70 55-70s34 20 54 70Z" fill="#6B764C" opacity=".7"/>
+          <path d="M520 250c34-76 58-100 78-100s48 28 78 100Z" fill="#525E3A" opacity=".8"/>
+          <g stroke="#6E7A50" stroke-width="1.2" opacity=".55" fill="none">
+            <path d="M0 470c140-30 260 20 400 0s260-40 400-10"/>
+            <path d="M0 500c140-26 260 22 400 2s260-36 400-8"/>
+            <path d="M40 440c130-24 230 16 360 0s240-32 360-6"/>
+          </g>
+          <g fill="#5C683E" opacity=".55">
+            <circle cx="90" cy="360" r="14"/><circle cx="130" cy="372" r="10"/>
+            <circle cx="690" cy="330" r="14"/><circle cx="660" cy="345" r="9"/>
+          </g>
+        </svg>
+        <button class="punto" style="left:26%;top:34%" data-prod="cuanala" aria-pressed="false"><i></i><b>Cuanala</b></button>
+        <button class="punto" style="left:72%;top:26%" data-prod="tepeyahualco" aria-pressed="false"><i></i><b>Tepeyahualco</b></button>
+        <button class="punto" style="left:58%;top:70%" data-prod="totimehuacan" aria-pressed="false"><i></i><b>Totimehuacan</b></button>
+        <button class="punto" style="left:31%;top:62%" data-prod="acatepec" aria-pressed="false"><i></i><b>Acatepec</b></button>
+      </div>
+      <article class="tarjeta-productor aparece" id="tarjetaProd"></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOPAL ===== -->
+<section class="seccion" id="nopal">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">Un ingrediente, muchas posibilidades</p>
+        <h2>Una sola cosecha de nopal, cinco platillos distintos.</h2>
+      </div>
+      <p class="intro">Cuando llega una caja grande de Acatepec, la cocina no elige una receta: elige cinco. La penca tierna va al ceviche, la más firme al caldillo, los recortes al relleno. Así casi nada se queda fuera del plato.</p>
+    </div>
+    <div class="nopal">
+      <div>
+        <ul class="lista-nopal" id="listaNopal" role="tablist" aria-label="Preparaciones de nopal"></ul>
+        <p class="nota">Cinco preparaciones que nacen del mismo corte semanal.</p>
+      </div>
+      <div class="escena-nopal aparece" id="escenaNopal">
+        <div class="pie-nopal" id="pieNopal"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALENDARIO ===== -->
+<section class="seccion hoja" id="calendario">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">El campo cambia, el menú también</p>
+        <h2>Un año visto desde la milpa.</h2>
+      </div>
+      <p class="intro">Referencias ilustrativas de lo que suele darse en la región. La disponibilidad real depende de cada cosecha, de la lluvia y de lo que decidan los productores.</p>
+    </div>
+    <div class="tira" id="tira"></div>
+  </div>
+</section>
+
+<!-- ===== PARTICIPA ===== -->
+<section class="seccion" id="participa">
+  <div class="envoltura">
+    <div class="encabezado-seccion aparece">
+      <div>
+        <p class="rotulo">Participa en el Menú Vivo</p>
+        <h2>La próxima creación puede comenzar contigo.</h2>
+      </div>
+      <p class="intro">Elige el ingrediente que te gustaría encontrar en la cocina la próxima temporada. Los más votados se platican con los productores antes de cada cambio de menú.</p>
+    </div>
+    <div class="participa">
+      <div class="aparece">
+        <h3>¿Qué ingrediente te gustaría ver en el próximo menú?</h3>
+        <div class="votos" id="votos"></div>
+        <button class="btn btn-maiz" id="btnVotar">Votar por mi ingrediente</button>
+        <p class="confirmacion" id="confirmaVoto" role="status"></p>
+      </div>
+      <div class="hoja-voto aparece">
+        <h3>Recibe el menú de cada temporada</h3>
+        <p class="intro" style="font-size:.97rem;margin-top:10px">Te avisamos cuando cambie la cosecha y con ella la carta de la semana.</p>
+        <div class="conmutador" id="canal" role="group" aria-label="Canal de aviso">
+          <button data-canal="correo" aria-pressed="true">Correo</button>
+          <button data-canal="whatsapp" aria-pressed="false">WhatsApp</button>
+        </div>
+        <div class="campo">
+          <input id="contacto" type="email" placeholder="tu@correo.com" aria-label="Tu correo electrónico">
+          <button class="btn btn-solido" id="btnSuscribir">Suscribirme</button>
+        </div>
+        <p class="confirmacion" id="confirmaSub" role="status"></p>
+        <p class="nota">Prototipo conceptual: los datos no se envían a ningún servidor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACTO ===== -->
+<section class="seccion" style="background:var(--crema-2)" id="impacto">
+  <div class="envoltura">
+    <div class="franja-impacto aparece">
+      <div>
+        <p class="rotulo">Por qué lo hacemos así</p>
+        <h2>Cocinar con la temporada es una decisión, no una limitante.</h2>
+        <p class="intro">El Menú Vivo busca fortalecer el vínculo con quienes siembran cerca de nosotros, aprovechar cada ingrediente hasta donde alcance y darle al cliente una razón para volver: nunca encuentra exactamente la misma carta dos veces.</p>
+      </div>
+      <img src="i20.jpg" alt="Manos de una persona productora sosteniendo verduras recién cosechadas en el campo">
+    </div>
+    <div class="impacto">
+      <article class="indicador aparece">
+        <h3>Ingredientes locales</h3>
+        <span class="estado">Depende de cada cosecha</span>
+        <p>La lista crece y se reduce con el año. Lo que no está en el campo, no está en la carta.</p>
+      </article>
+      <article class="indicador aparece">
+        <h3>Productores conectados</h3>
+        <span class="estado">En constante crecimiento</span>
+        <p>Cada temporada abre la puerta a una familia productora más de la región de Cholula y alrededores.</p>
+      </article>
+      <article class="indicador aparece">
+        <h3>Platillos inspirados en la temporada</h3>
+        <span class="estado">Se escriben cada semana</span>
+        <p>Un mismo ingrediente puede recorrer la carta completa: entrada, fondo, guarnición y hasta el pan.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <div class="pie-rejilla">
+      <div>
+        <h3>Recaudo</h3>
+        <p>Del productor a tu mesa.<br>San Andrés Cholula, Puebla, México.</p>
+      </div>
+      <div>
+        <p class="titulo-pie">Encuéntranos</p>
+        <ul>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#inicio">Sitio oficial</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="titulo-pie">Menú Vivo</p>
+        <ul>
+          <li><a href="#menu">Esta semana</a></li>
+          <li><a href="#mapa">Productores</a></li>
+          <li><a href="#calendario">Calendario de temporadas</a></li>
+          <li><a href="#participa">Vota un ingrediente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="aviso">
+      <span>Este sitio es un prototipo conceptual de Menú Vivo.</span>
+      <span>Platillos y precios mostrados con fines de demostración.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="telon" id="telon" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+  <div class="modal" id="modal">
+    <button class="cerrar" id="btnCerrar" aria-label="Cerrar">&times;</button>
+    <div class="modal-foto" id="modalFoto"></div>
+    <div class="modal-cuerpo" id="modalCuerpo"></div>
+  </div>
+</div>
+
+<script>
+/* ---------------- datos ---------------- */
+const platillos = [
+  {id:"setas",nombre:"Tacos de setas",img:"i2.jpg",momento:"comidas",etiqueta:"Temporada de lluvias",
+   desc:"Setas salteadas, tortillas de maíz y acompañamientos de la casa.",
+   ingrediente:"Setas",productor:"Cuanala",casa:"Familia recolectora de Cuanala",
+   historia:"Las setas llegan en canastas dos veces por semana, cortadas muy temprano para que no pierdan humedad. En la cocina se saltean a fuego alto con poco aceite, sin taparlas, para que suelten su propio jugo y se concentre el sabor antes de llegar a la tortilla.",
+   viaje:"De la humedad de Cuanala al comal, en menos de un día."},
+  {id:"nopal5",nombre:"Nopal en cinco formas",img:"i3.jpg",momento:"comidas",etiqueta:"Todo el año",
+   desc:"Una misma cosecha, distintas posibilidades: sopa, ceviche, caldillo, nopal relleno y tacos.",
+   ingrediente:"Nopal",productor:"San Francisco Acatepec",casa:"Huerta familiar de Acatepec",
+   historia:"Una caja de nopal da para mucho más de un platillo. Las pencas tiernas se van crudas al ceviche, las firmes al caldillo, y los recortes que normalmente se tirarían terminan como relleno o dentro de un taco con pico de gallo.",
+   viaje:"Un solo corte semanal que recorre cinco preparaciones de la carta."},
+  {id:"huevos",nombre:"Huevos de temporada",img:"i4.jpg",momento:"desayunos",etiqueta:"Desayuno del día",
+   desc:"Huevos preparados con ingredientes frescos que cambian según la disponibilidad del campo.",
+   ingrediente:"Huevo",productor:"San Francisco Totimehuacan",casa:"Traspatio de San Francisco Totimehuacan",
+   historia:"Huevo de traspatio, de gallinas que andan sueltas y comen de todo. La yema es más oscura y firme, así que el platillo se arma alrededor de ella: lo que la acompaña cambia cada semana según lo que haya en la caja de verduras.",
+   viaje:"Del traspatio a la cocina, sin bodegas intermedias."},
+  {id:"focaccia",nombre:"Focaccia de temporada",img:"i5.jpg",momento:"desayunos",etiqueta:"Horneado del día",
+   desc:"Pan artesanal acompañado de ingredientes seleccionados de la cosecha.",
+   ingrediente:"Productos de temporada",productor:"Huertas de Cholula",casa:"Varias huertas de la región",
+   historia:"La masa es siempre la misma; lo que cambia es lo que se le pone encima. Un mes son jitomates y hierbas, otro calabaza y flor, otro chiles asados. La focaccia funciona como un calendario comestible de lo que hay esa semana.",
+   viaje:"Se decide la mañana del horneado, con lo que llegó el día anterior."},
+  {id:"chicharo",nombre:"Tosta de chícharo",img:"i6.jpg",momento:"desayunos",etiqueta:"Cosecha corta",
+   desc:"Chícharo fresco machacado sobre pan tostado, con hierbas y semillas de la región.",
+   ingrediente:"Chícharo",productor:"Huertas de Cholula",casa:"Huertas de los alrededores de Cholula",
+   historia:"El chícharo fresco tiene una ventana muy corta. Se machaca el mismo día para conservar el dulzor y se equilibra con hierbas verdes y un poco de acidez, en lugar de cocerlo hasta perder el color.",
+   viaje:"Unas cuantas semanas al año, y luego desaparece de la carta."},
+  {id:"chia",nombre:"Bowl de chía",img:"i7.jpg",momento:"desayunos",etiqueta:"Mañanas frescas",
+   desc:"Chía hidratada, fruta de temporada y miel de productores locales.",
+   ingrediente:"Chía",productor:"Huertas de Cholula",casa:"Productores locales de chía y miel",
+   historia:"La chía se deja hidratar toda la noche. La fruta encima es la que esté en su punto esa semana y la miel viene de apiarios cercanos, así que su sabor también cambia según lo que estén floreando las abejas.",
+   viaje:"Dos ingredientes locales que cambian de carácter cada temporada."},
+  {id:"bisquet",nombre:"Bisquet con frutos rojos",img:"i8.jpg",momento:"desayunos",etiqueta:"Mientras dure la fruta",
+   desc:"Bisquet recién horneado con frutos rojos de la temporada.",
+   ingrediente:"Frutos rojos",productor:"Huertas de Cholula",casa:"Pequeños huertos de la región",
+   historia:"Cuando hay fruto rojo bueno, entra al menú; cuando se acaba, sale. El bisquet se hornea por lotes pequeños durante la mañana para que llegue tibio a la mesa.",
+   viaje:"Un postre de desayuno que solo existe unas semanas."},
+  {id:"nogada",nombre:"Chile en nogada vegetariano",img:"i9.jpg",momento:"comidas",etiqueta:"Agosto y septiembre",
+   desc:"Versión sin carne del clásico poblano, con relleno de frutas y semillas de la temporada.",
+   ingrediente:"Chile poblano",productor:"Huertas de Cholula",casa:"Productores de chile y fruta de la región",
+   historia:"El chile en nogada solo tiene sentido cuando coinciden el chile poblano, la manzana panochera, la pera lechera y la nuez de castilla. Esta versión cambia la carne por un relleno de frutas, semillas y verduras de la misma temporada.",
+   viaje:"Dos meses al año, cuando la región entera está en su punto."},
+  {id:"quinoa",nombre:"Plato de quinoa",img:"i10.jpg",momento:"comidas",etiqueta:"Cosecha de altura",
+   desc:"Quinoa de Tepeyahualco con verduras asadas, hierbas y aderezo de la casa.",
+   ingrediente:"Quinoa",productor:"Tepeyahualco",casa:"Productores de quinoa de Tepeyahualco",
+   historia:"La quinoa de Tepeyahualco se cultiva en tierras altas y frías. Se cuece en caldo de verduras en lugar de agua para que tome sabor, y se sirve con lo que haya salido bien esa semana en la parrilla.",
+   viaje:"Del altiplano poblano a un plato de comida corrida distinta."}
+];
+
+const productores = {
+  cuanala:{nombre:"Familia recolectora de Cuanala",lugar:"Cuanala, Puebla · Setas",img:"i11.jpg",
+    texto:"Producen setas en condiciones de humedad controlada y cortan por la madrugada. Su calendario manda: cuando hay brote grande, la cocina arma tacos; cuando es corto, se van a la focaccia o al caldo."},
+  tepeyahualco:{nombre:"Productores de quinoa de Tepeyahualco",lugar:"Tepeyahualco, Puebla · Quinoa",img:"i12.jpg",
+    texto:"Un grano de altura que se recupera poco a poco en la región. Llega limpio y seco, listo para cocerse, y aguanta bien de una temporada a otra."},
+  totimehuacan:{nombre:"Traspatio de San Francisco Totimehuacan",lugar:"San Francisco Totimehuacan · Huevo",img:"i13.jpg",
+    texto:"Gallinas de traspatio, sueltas y con dieta variada. La producción es limitada, así que el huevo se usa donde más se nota: en los desayunos del día."},
+  acatepec:{nombre:"Huerta familiar de San Francisco Acatepec",lugar:"San Francisco Acatepec · Nopal",img:"i14.jpg",
+    texto:"Nopal cortado a mano, penca por penca. De una sola entrega salen cinco preparaciones distintas, incluyendo los recortes que en otras cocinas terminarían en la basura."}
+};
+
+const nopalPlatos = [
+  {n:"Sopa de nopal",img:"i15.jpg",d:"Caldo ligero de jitomate y hierbas, con nopal en cubos que se agrega al final para que no pierda textura."},
+  {n:"Ceviche de nopal",img:"i16.jpg",d:"Penca tierna en crudo, curada con limón, cebolla y chile. La entrada más fresca de la temporada de calor."},
+  {n:"Caldillo de nopal",img:"i17.jpg",d:"Las pencas más firmes, guisadas despacio en un caldillo de chile seco hasta que se suavizan."},
+  {n:"Nopal relleno de queso",img:"i18.jpg",d:"Pencas enteras rellenas y asadas al comal, con los recortes aprovechados en la salsa que las acompaña."},
+  {n:"Tacos de nopal con pico de gallo",img:"i19.jpg",d:"Nopal asado, pico de gallo y tortilla de maíz. Lo que sobra del corte se vuelve el plato más sencillo y más pedido."}
+];
+
+const calendario = [
+  {m:"Enero",i:["Nopal","Hierbas de invierno","Quinoa"]},
+  {m:"Febrero",i:["Nopal tierno","Espinacas","Huevo"]},
+  {m:"Marzo",i:["Chícharo","Hierbas frescas","Cilantro"]},
+  {m:"Abril",i:["Chícharo","Calabaza tierna","Flor de calabaza"]},
+  {m:"Mayo",i:["Calabaza","Jitomate","Miel"]},
+  {m:"Junio",i:["Setas","Maíz tierno","Hierbas"]},
+  {m:"Julio",i:["Setas","Elote","Quelites"]},
+  {m:"Agosto",i:["Chile poblano","Nuez","Frutos de temporada"]},
+  {m:"Septiembre",i:["Setas","Chile en nogada","Nopal","Chía"]},
+  {m:"Octubre",i:["Quinoa","Calabaza de castilla","Maíz"]},
+  {m:"Noviembre",i:["Quinoa","Chía","Nopal"]},
+  {m:"Diciembre",i:["Hierbas","Huevo","Frutos secos"]}
+];
+
+const ingredientesVoto = [
+  {id:"setas",n:"Setas",base:34},{id:"nopal",n:"Nopal",base:28},
+  {id:"quinoa",n:"Quinoa",base:14},{id:"hierbas",n:"Hierbas",base:11},
+  {id:"calabaza",n:"Calabaza",base:13}
+];
+
+/* --------- imagen con marcador si falta --------- */
+function img(src,alt){
+  return `<img src="${src}" alt="${alt}" loading="lazy">`;
+}
+document.addEventListener('error',e=>{
+  const el=e.target;
+  if(el.tagName!=='IMG'||el.dataset.reemplazado) return;
+  if(el.closest('.escena-nopal')||el.closest('.marca')){el.style.display='none';return;}
+  const d=document.createElement('div');
+  d.className='falta';
+  d.dataset.reemplazado='1';
+  d.innerHTML='<b>'+el.getAttribute('src')+'</b>'+(el.alt||'');
+  el.replaceWith(d);
+},true);
+
+/* ---------------- navegación ---------------- */
+const nav=document.getElementById('nav');
+document.getElementById('btnMenu').addEventListener('click',e=>{
+  const abierto=nav.classList.toggle('abierto');
+  e.currentTarget.setAttribute('aria-expanded',abierto);
+});
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('abierto');
+  document.getElementById('btnMenu').setAttribute('aria-expanded','false');
+}));
+addEventListener('scroll',()=>nav.classList.toggle('fija',scrollY>12));
+
+/* ---------------- menú + filtros ---------------- */
+const rejilla=document.getElementById('rejillaMenu');
+const vacio=document.getElementById('vacio');
+const estado={momento:'todo',ingrediente:'todo',productor:'todo'};
+
+function tarjeta(p){
+  return `<button class="platillo aparece dentro" data-id="${p.id}">
+    <span class="platillo-foto">${img(p.img,p.nombre)}<span class="etiqueta">${p.etiqueta}</span></span>
+    <span class="platillo-cuerpo">
+      <span class="t3">${p.nombre}</span>
+      <span class="dsc">${p.desc}</span>
+      <span class="meta">
+        <span>Ingrediente: <b>${p.ingrediente}</b></span>
+        <span class="productor">${p.casa}</span>
+        <span class="precio">Precio por definir</span>
+      </span>
+    </span>
+  </button>`;
+}
+function pintarMenu(){
+  const lista=platillos.filter(p=>
+    (estado.momento==='todo'||p.momento===estado.momento)&&
+    (estado.ingrediente==='todo'||p.ingrediente===estado.ingrediente)&&
+    (estado.productor==='todo'||p.productor===estado.productor));
+  rejilla.innerHTML=lista.map(tarjeta).join('');
+  vacio.hidden=lista.length>0;
+}
+document.querySelectorAll('#filtros .grupo-filtro').forEach(g=>{
+  g.addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b) return;
+    g.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));
+    estado[g.dataset.grupo]=b.dataset.valor;
+    pintarMenu();
+  });
+});
+pintarMenu();
+
+/* ---------------- modal ---------------- */
+const telon=document.getElementById('telon');
+const modalFoto=document.getElementById('modalFoto');
+const modalCuerpo=document.getElementById('modalCuerpo');
+let ultimoFoco=null;
+
+rejilla.addEventListener('click',e=>{
+  const t=e.target.closest('.platillo'); if(!t) return;
+  const p=platillos.find(x=>x.id===t.dataset.id);
+  ultimoFoco=t;
+  modalFoto.innerHTML=img(p.img,p.nombre);
+  modalCuerpo.innerHTML=`
+    <p class="rotulo">${p.etiqueta}</p>
+    <h3 id="tituloModal">${p.nombre}</h3>
+    <p style="color:var(--tinta-suave);margin-top:10px">${p.desc}</p>
+    <p>${p.historia}</p>
+    <div class="ficha">
+      <div><span class="k">Ingrediente</span><span>${p.ingrediente}</span></div>
+      <div><span class="k">Productor</span><span>${p.casa}</span></div>
+      <div><span class="k">Origen</span><span>${p.productor}</span></div>
+      <div><span class="k">Cómo llegó</span><span>${p.viaje}</span></div>
+      <div><span class="k">Precio</span><span>Por definir · platillo de demostración</span></div>
+    </div>`;
+  telon.classList.add('visible');
+  document.body.style.overflow='hidden';
+  document.getElementById('btnCerrar').focus();
+});
+function cerrar(){
+  telon.classList.remove('visible');
+  document.body.style.overflow='';
+  if(ultimoFoco) ultimoFoco.focus();
+}
+document.getElementById('btnCerrar').addEventListener('click',cerrar);
+telon.addEventListener('click',e=>{if(e.target===telon) cerrar();});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&telon.classList.contains('visible')) cerrar();});
+
+/* ---------------- mapa ---------------- */
+const tarjetaProd=document.getElementById('tarjetaProd');
+function pintarProductor(clave){
+  const p=productores[clave];
+  tarjetaProd.innerHTML=`${img(p.img,p.nombre)}<div class="txt"><h3>${p.nombre}</h3><p class="lugar">${p.lugar}</p><p>${p.texto}</p></div>`;
+}
+document.querySelectorAll('.punto').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.punto').forEach(o=>o.setAttribute('aria-pressed',o===b));
+    pintarProductor(b.dataset.prod);
+  });
+});
+document.querySelector('.punto').setAttribute('aria-pressed','true');
+pintarProductor('cuanala');
+
+/* ---------------- nopal ---------------- */
+const listaNopal=document.getElementById('listaNopal');
+const escena=document.getElementById('escenaNopal');
+const pie=document.getElementById('pieNopal');
+listaNopal.innerHTML=nopalPlatos.map((p,i)=>
+  `<li role="presentation"><button role="tab" aria-selected="${i===0}" data-i="${i}">${p.n}<span class="marca-sel">Ver</span></button></li>`).join('');
+nopalPlatos.forEach((p,i)=>{
+  const el=document.createElement('img');
+  el.src=p.img; el.alt=p.n; el.loading='lazy';
+  if(i===0) el.classList.add('activa');
+  el.addEventListener('error',()=>{el.style.display='none'});
+  escena.insertBefore(el,pie);
+});
+function pintarNopal(i){
+  escena.querySelectorAll('img').forEach((el,j)=>el.classList.toggle('activa',i===j));
+  pie.innerHTML=`<h3>${nopalPlatos[i].n}</h3><p>${nopalPlatos[i].d}</p>`;
+  listaNopal.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-selected',i===j));
+}
+listaNopal.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(b) pintarNopal(+b.dataset.i);
+});
+pintarNopal(0);
+
+/* ---------------- calendario ---------------- */
+const mesActual=new Date().getMonth();
+document.getElementById('tira').innerHTML=calendario.map((c,i)=>
+  `<article class="mes${i===mesActual?' actual':''}">
+     <h3>${c.m}</h3>
+     <ul>${c.i.map(x=>`<li>${x}</li>`).join('')}</ul>
+     ${i===mesActual?'<span class="aqui">Temporada actual</span>':''}
+   </article>`).join('');
+const actual=document.querySelector('.mes.actual');
+if(actual) actual.scrollIntoView({block:'nearest',inline:'center'});
+
+/* ---------------- encuesta ---------------- */
+const cajaVotos=document.getElementById('votos');
+let elegido=null, yaVoto=false;
+cajaVotos.innerHTML=ingredientesVoto.map(v=>
+  `<button class="voto" data-id="${v.id}" aria-pressed="false">
+     <span class="barra"></span><span class="nombre">${v.n}</span><span class="pct"></span>
+   </button>`).join('');
+cajaVotos.addEventListener('click',e=>{
+  const b=e.target.closest('.voto'); if(!b||yaVoto) return;
+  elegido=b.dataset.id;
+  cajaVotos.querySelectorAll('.voto').forEach(o=>o.setAttribute('aria-pressed',o===b));
+});
+document.getElementById('btnVotar').addEventListener('click',()=>{
+  const msg=document.getElementById('confirmaVoto');
+  if(!elegido){ msg.textContent='Elige primero un ingrediente de la lista.'; msg.classList.add('visible'); return; }
+  yaVoto=true;
+  const total=ingredientesVoto.reduce((s,v)=>s+v.base,0)+1;
+  cajaVotos.classList.add('resultados');
+  ingredientesVoto.forEach(v=>{
+    const el=cajaVotos.querySelector(`[data-id="${v.id}"]`);
+    const pct=Math.round(((v.base+(v.id===elegido?1:0))/total)*100);
+    el.querySelector('.barra').style.width=pct+'%';
+    el.querySelector('.pct').textContent=pct+'%';
+  });
+  const nombre=ingredientesVoto.find(v=>v.id===elegido).n;
+  msg.textContent='Voto registrado: '+nombre+'. Lo platicamos con los productores antes del próximo cambio de menú.';
+  msg.classList.add('visible');
+  document.getElementById('btnVotar').textContent='Gracias por votar';
+  document.getElementById('btnVotar').disabled=true;
+});
+
+/* ---------------- suscripción ---------------- */
+let canal='correo';
+const entrada=document.getElementById('contacto');
+document.getElementById('canal').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  canal=b.dataset.canal;
+  document.querySelectorAll('#canal button').forEach(o=>o.setAttribute('aria-pressed',o===b));
+  if(canal==='correo'){entrada.type='email';entrada.placeholder='tu@correo.com';entrada.setAttribute('aria-label','Tu correo electrónico');}
+  else{entrada.type='tel';entrada.placeholder='222 000 0000';entrada.setAttribute('aria-label','Tu número de WhatsApp');}
+  entrada.value='';
+});
+document.getElementById('btnSuscribir').addEventListener('click',()=>{
+  const m=document.getElementById('confirmaSub');
+  const v=entrada.value.trim();
+  const ok=canal==='correo'?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.replace(/\D/g,'').length>=10;
+  m.textContent=ok
+    ? (canal==='correo'?'Listo, te escribiremos al cambiar la temporada.':'Listo, te avisamos por WhatsApp cuando cambie la carta.')
+    : (canal==='correo'?'Escribe un correo válido para poder avisarte.':'Escribe un número de 10 dígitos para poder avisarte.');
+  m.classList.add('visible');
+  if(ok) entrada.value='';
+});
+
+/* ---------------- entradas al scroll ---------------- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('dentro');io.unobserve(e.target);}});
+},{threshold:.14});
+document.querySelectorAll('.aparece').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
