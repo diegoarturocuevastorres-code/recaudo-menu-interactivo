@@ -40,12 +40,12 @@ img{max-width:100%;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3,h4,.t3{font-family:var(--serif);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.015em}
-h1{font-size:clamp(2.6rem,6.4vw,5rem);font-variation-settings:"SOFT" 20,"opsz" 120}
-h2{font-size:clamp(2rem,4.2vw,3.25rem)}
+h1{font-size:clamp(2.4rem,6vw,5rem);font-variation-settings:"SOFT" 20,"opsz" 120}
+h2{font-size:clamp(1.8rem,4vw,3.25rem)}
 h3,.t3{font-size:1.32rem;line-height:1.2;display:block}
 p{margin:0 0 1em}
-.envoltura{width:100%;max-width:var(--ancho);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
-.seccion{padding-block:clamp(72px,10vw,124px)}
+.envoltura{width:100%;max-width:var(--ancho);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.seccion{padding-block:clamp(48px,8vw,124px)}
 .hoja{color:var(--crema);background:var(--olivo-hondo)}
 .hoja h2,.hoja h3{color:var(--crema)}
 .hoja p{color:rgba(244,239,227,.78)}
@@ -56,12 +56,12 @@ p{margin:0 0 1em}
 .hoja .intro{color:rgba(244,239,227,.75)}
 .rotulo{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--terracota);margin:0 0 .9rem}
 .hoja .rotulo{color:var(--maiz)}
-.encabezado-seccion{display:grid;gap:22px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+.encabezado-seccion{display:grid;gap:22px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:end;margin-bottom:clamp(28px,4vw,60px)}
 @media(max-width:820px){.encabezado-seccion{grid-template-columns:1fr;align-items:start}}
 
 /* ---------- botones ---------- */
 .btn{
-  display:inline-flex;align-items:center;gap:.55rem;border:1px solid transparent;
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border:1px solid transparent;
   padding:.85rem 1.5rem;border-radius:999px;font-weight:600;font-size:.97rem;
   text-decoration:none;transition:transform .18s ease,background .2s ease,color .2s ease,border-color .2s ease;
 }
@@ -73,7 +73,7 @@ p{margin:0 0 1em}
 .btn-maiz:hover{background:#d9a52e;transform:translateY(-2px)}
 
 /* ---------- navegación ---------- */
-.nav{position:sticky;top:0;z-index:60;background:rgba(244,239,227,.9);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+.nav{position:sticky;top:0;z-index:60;background:rgba(244,239,227,.95);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
 .nav.fija{border-color:var(--linea)}
 .nav-fila{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -100,13 +100,13 @@ p{margin:0 0 1em}
 }
 
 /* ---------- hero ---------- */
-.hero{position:relative;padding-top:clamp(40px,6vw,66px);padding-bottom:clamp(60px,8vw,96px)}
-.hero-rejilla{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(30px,5vw,64px);align-items:center}
+.hero{position:relative;padding-top:clamp(24px,4vw,66px);padding-bottom:clamp(40px,6vw,96px)}
+.hero-rejilla{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
 .hero h1{margin-bottom:22px}
 .hero h1 em{font-style:italic;font-variation-settings:"SOFT" 40}
 .hero .intro{font-size:1.15rem;max-width:40ch}
 .hero-botones{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.temporada{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:26px;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olivo);font-weight:600}
+.temporada{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:20px;font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olivo);font-weight:600}
 .pulso{width:9px;height:9px;border-radius:50%;background:var(--terracota);position:relative}
 .pulso::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--terracota);opacity:.5;animation:late 2.6s ease-out infinite}
 @keyframes late{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.5);opacity:0}}
@@ -121,8 +121,11 @@ p{margin:0 0 1em}
 .sello span{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);display:block;margin-top:6px}
 @media(max-width:860px){
   .hero-rejilla{grid-template-columns:1fr}
-  .hero-foto{aspect-ratio:3/4;order:-1}
-  .sello{left:auto;right:14px;bottom:14px;width:108px;height:108px}
+  .hero-foto{aspect-ratio:4/3;order:-1}
+  .sello{left:auto;right:14px;bottom:14px;width:100px;height:100px;padding:8px}
+  .sello b{font-size:1.2rem}
+  .hero-botones{flex-direction:column;width:100%}
+  .hero-botones .btn{width:100%}
 }
 
 /* ---------- pasos ---------- */
@@ -133,137 +136,371 @@ p{margin:0 0 1em}
 .paso h3{margin-bottom:10px}
 .paso .num{font-family:var(--serif);font-size:.9rem;color:var(--maiz);display:block;margin-bottom:14px}
 
-/* ---------- filtros + menú ---------- */
-.filtros{display:grid;gap:18px;margin-bottom:38px;border-block:1px solid var(--linea);padding-block:22px}
-.grupo-filtro{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.grupo-filtro>span{font-size:.8rem;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-suave);min-width:104px}
-.chip{background:transparent;border:1px solid var(--linea);border-radius:999px;padding:.44rem 1rem;font-size:.9rem;color:var(--tinta-suave);transition:all .2s ease}
-.chip:hover{border-color:var(--olivo);color:var(--olivo)}
-.chip[aria-pressed="true"]{background:var(--olivo);border-color:var(--olivo);color:var(--crema)}
-.rejilla-menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:clamp(20px,2.6vw,32px)}
-.platillo{
-  background:#fff;border-radius:var(--r-m);overflow:hidden;text-align:left;padding:0;border:1px solid rgba(51,38,28,.08);
-  display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease;width:100%;
+/* ---------- FILTROS Y CLASIFICACIÓN SÚTIL & RESPONSIVE ---------- */
+.filtros{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+
+.barra-filtros-principal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--linea);
+  padding-bottom: 12px;
 }
-.platillo:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-.platillo:hover .platillo-foto img{transform:scale(1.04)}
-.platillo-foto{aspect-ratio:5/4;overflow:hidden;position:relative;background:var(--crema-2)}
-.platillo-foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.etiqueta{position:absolute;top:12px;left:12px;background:rgba(244,239,227,.94);color:var(--olivo-hondo);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;font-weight:600}
-.platillo-cuerpo{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1;gap:10px}
-.platillo-cuerpo .dsc{display:block;font-size:.95rem;color:var(--tinta-suave)}
-.meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--linea);display:grid;gap:5px;font-size:.87rem}
-.meta b{font-weight:600}
-.meta .productor{color:var(--terracota)}
-.precio{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+
+.subfiltros-grupo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+.subfiltros-grupo::-webkit-scrollbar { display: none; }
+
+.selector-discreto {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-size: .85rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+.selector-discreto:hover {
+  color: var(--tinta);
+  background: rgba(51,38,28,.04);
+}
+.selector-discreto[aria-pressed="true"] {
+  background: var(--crema-2);
+  color: var(--olivo-hondo);
+  font-weight: 600;
+}
+
+/* Pestañas de categoría (Tabs deslizables) */
+.barra-categorias {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.barra-categorias::-webkit-scrollbar { height: 3px; }
+.barra-categorias::-webkit-scrollbar-thumb { background: var(--linea); border-radius: 999px; }
+
+.tab-cat {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: .4rem .7rem;
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+.tab-cat:hover {
+  color: var(--tinta);
+}
+.tab-cat[aria-selected="true"] {
+  color: var(--terracota);
+  border-bottom-color: var(--terracota);
+  font-weight: 600;
+}
+
+/* MENÚ TIPO LISTA TRADICIONAL RESPONSIVE */
+.contenedor-menu-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.categoria-seccion {
+  background: #fff;
+  border-radius: var(--r-m);
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid rgba(51,38,28,.08);
+  box-shadow: 0 4px 18px -10px rgba(0,0,0,.04);
+}
+.categoria-titulo {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--olivo-hondo);
+  border-bottom: 1px solid var(--crema-2);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.lista-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px 28px;
+}
+@media(max-width: 680px) {
+  .lista-menu { grid-template-columns: 1fr; gap: 12px; }
+}
+
+.item-menu {
+  background: none;
+  border: none;
+  padding: 8px 6px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: var(--r-s);
+  transition: background-color .18s ease;
+  cursor: pointer;
+  width: 100%;
+}
+.item-menu:hover {
+  background-color: var(--crema);
+}
+.item-encabezado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+.item-nombre {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--tinta);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.item-linea {
+  flex: 1;
+  border-bottom: 1px dotted var(--tinta-suave);
+  opacity: .35;
+  margin-bottom: 4px;
+  min-width: 12px;
+}
+.item-precio {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--olivo);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.item-desc {
+  font-size: .88rem;
+  color: var(--tinta-suave);
+  line-height: 1.4;
+}
+.item-badge-temp {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  background: var(--terracota);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
 .vacio{padding:46px 0;text-align:center;color:var(--tinta-suave)}
 
 /* ---------- modal ---------- */
-.telon{position:fixed;inset:0;z-index:90;background:rgba(34,26,19,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:18px}
+.telon{position:fixed;inset:0;z-index:90;background:rgba(34,26,19,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:12px}
 .telon.visible{display:flex}
 .modal{background:var(--crema);border-radius:var(--r-l);max-width:900px;width:100%;max-height:92vh;overflow:auto;position:relative;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);animation:sube .3s ease}
 @keyframes sube{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
 .modal-foto{min-height:100%;background:var(--crema-2)}
-.modal-foto img{width:100%;height:100%;object-fit:cover;min-height:240px}
-.modal-cuerpo{padding:clamp(26px,3.4vw,42px)}
-.modal-cuerpo h3{font-size:1.9rem;margin-bottom:8px}
-.cerrar{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:none;background:var(--crema);color:var(--tinta);font-size:1.3rem;line-height:1;display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(0,0,0,.4)}
-.ficha{display:grid;gap:14px;margin-top:22px;padding-top:20px;border-top:1px solid var(--linea)}
-.ficha div{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:.94rem;align-items:baseline}
-.ficha dt,.ficha .k{color:var(--tinta-suave);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
-@media(max-width:760px){.modal{grid-template-columns:1fr}.modal-foto img{max-height:230px}.ficha div{grid-template-columns:1fr;gap:2px}}
+.modal-foto img{width:100%;height:100%;object-fit:cover;min-height:220px}
+.modal-cuerpo{padding:clamp(20px,3vw,42px)}
+.modal-cuerpo h3{font-size:1.7rem;margin-bottom:8px}
+.cerrar{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:none;background:var(--crema);color:var(--tinta);font-size:1.3rem;line-height:1;display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(0,0,0,.4);z-index:2;}
+.ficha{display:grid;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}
+.ficha div{display:grid;grid-template-columns:110px 1fr;gap:10px;font-size:.9rem;align-items:baseline}
+.ficha dt,.ficha .k{color:var(--tinta-suave);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+.historia-platillo {
+  margin-top: 14px;
+  background: rgba(74,87,51,.08);
+  padding: 12px 14px;
+  border-radius: var(--r-m);
+  border-left: 3px solid var(--olivo);
+  font-size: .9rem;
+  color: var(--tinta);
+}
+.historia-platillo b {
+  display: block;
+  font-family: var(--serif);
+  color: var(--olivo-hondo);
+  margin-bottom: 4px;
+}
+@media(max-width:760px){
+  .modal{grid-template-columns:1fr}
+  .modal-foto img{max-height:200px;min-height:180px}
+  .ficha div{grid-template-columns:1fr;gap:2px}
+}
 
-/* ---------- mapa ---------- */
-.mapa-envoltura{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:clamp(24px,3.4vw,44px);align-items:start}
+/* ---------- mapa interactivo enriquecido ---------- */
+.mapa-envoltura{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:clamp(20px,3vw,44px);align-items:start}
 @media(max-width:900px){.mapa-envoltura{grid-template-columns:1fr}}
-.lienzo{position:relative;border-radius:var(--r-l);overflow:hidden;background:#3A4529;aspect-ratio:16/11}
+.lienzo{position:relative;border-radius:var(--r-l);overflow:hidden;background:#323C23;aspect-ratio:16/11;box-shadow:var(--sombra)}
 .lienzo svg{width:100%;height:100%;display:block}
-.punto{position:absolute;transform:translate(-50%,-50%);background:none;border:none;padding:0;display:grid;place-items:center}
-.punto i{display:block;width:15px;height:15px;border-radius:50%;background:var(--maiz);box-shadow:0 0 0 0 rgba(227,176,63,.55);transition:transform .2s ease,box-shadow .3s ease}
-.punto:hover i,.punto[aria-pressed="true"] i{transform:scale(1.3);box-shadow:0 0 0 10px rgba(227,176,63,.2)}
-.punto[aria-pressed="true"] i{background:var(--terracota);box-shadow:0 0 0 10px rgba(176,84,47,.22)}
-.punto b{position:absolute;top:22px;white-space:nowrap;font-size:.8rem;font-weight:500;color:var(--crema);background:rgba(46,55,33,.7);padding:.18rem .55rem;border-radius:999px}
+.punto{position:absolute;transform:translate(-50%,-50%);background:none;border:none;padding:0;display:grid;place-items:center;cursor:pointer;z-index:5}
+.punto i{display:block;width:14px;height:14px;border-radius:50%;background:var(--maiz);box-shadow:0 0 0 0 rgba(227,176,63,.55);transition:transform .2s ease,box-shadow .3s ease}
+.punto:hover i,.punto[aria-pressed="true"] i{transform:scale(1.35);box-shadow:0 0 0 8px rgba(227,176,63,.25)}
+.punto[aria-pressed="true"] i{background:var(--terracota);box-shadow:0 0 0 8px rgba(176,84,47,.3)}
+.punto b{position:absolute;top:20px;white-space:nowrap;font-size:.75rem;font-weight:600;color:var(--crema);background:rgba(34,42,24,.85);padding:.18rem .5rem;border-radius:999px;backdrop-filter:blur(2px);pointer-events:none;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+
 .tarjeta-productor{background:var(--crema);color:var(--tinta);border-radius:var(--r-m);overflow:hidden;box-shadow:var(--sombra)}
 .tarjeta-productor img{aspect-ratio:16/10;object-fit:cover;width:100%}
-.tarjeta-productor .txt{padding:24px}
+.tarjeta-productor .txt{padding:20px}
 .tarjeta-productor h3{margin-bottom:4px}
-.tarjeta-productor .lugar{color:var(--terracota);font-size:.9rem;margin-bottom:12px}
-.tarjeta-productor p{font-size:.95rem;color:var(--tinta-suave);margin:0}
+.tarjeta-productor .lugar{color:var(--terracota);font-size:.88rem;margin-bottom:10px}
+.tarjeta-productor p{font-size:.92rem;color:var(--tinta-suave);margin:0}
 
 /* ---------- nopal ---------- */
-.nopal{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.nopal{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:center}
 @media(max-width:900px){.nopal{grid-template-columns:1fr}}
-.lista-nopal{display:grid;gap:2px;margin:26px 0 0;padding:0;list-style:none}
-.lista-nopal button{width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--linea);padding:15px 8px 15px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--serif);font-size:1.22rem;color:var(--tinta-suave);transition:color .2s ease,padding .25s ease}
+.lista-nopal{display:grid;gap:2px;margin:20px 0 0;padding:0;list-style:none}
+.lista-nopal button{width:100%;text-align:left;background:none;border:none;border-top:1px solid var(--linea);padding:12px 8px 12px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--serif);font-size:1.1rem;color:var(--tinta-suave);transition:color .2s ease,padding .25s ease}
 .lista-nopal li:last-child button{border-bottom:1px solid var(--linea)}
-.lista-nopal button:hover{color:var(--tinta);padding-left:8px}
-.lista-nopal button[aria-selected="true"]{color:var(--terracota);padding-left:8px}
+.lista-nopal button:hover{color:var(--tinta);padding-left:6px}
+.lista-nopal button[aria-selected="true"]{color:var(--terracota);padding-left:6px}
 .lista-nopal button[aria-selected="true"] .marca-sel{opacity:1;transform:none}
-.marca-sel{opacity:0;transform:translateX(-6px);transition:all .25s ease;font-family:var(--sans);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+.marca-sel{opacity:0;transform:translateX(-6px);transition:all .25s ease;font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
 .escena-nopal{position:relative;border-radius:var(--r-l);overflow:hidden;aspect-ratio:1/1;box-shadow:var(--sombra);background:var(--crema-2)}
 .escena-nopal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
 .escena-nopal img.activa{opacity:1}
-.pie-nopal{position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(34,26,19,.82),transparent);color:var(--crema)}
-.pie-nopal h3{color:var(--crema);margin-bottom:6px}
-.pie-nopal p{color:rgba(244,239,227,.82);font-size:.94rem;margin:0}
+.pie-nopal{position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(to top,rgba(34,26,19,.85),transparent);color:var(--crema)}
+.pie-nopal h3{color:var(--crema);margin-bottom:4px;font-size:1.2rem}
+.pie-nopal p{color:rgba(244,239,227,.82);font-size:.88rem;margin:0}
 
-/* ---------- calendario ---------- */
-.tira{display:flex;gap:16px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.tira::-webkit-scrollbar{height:5px}
-.tira::-webkit-scrollbar-thumb{background:rgba(244,239,227,.3);border-radius:9px}
-.mes{flex:0 0 190px;scroll-snap-align:start;border:1px solid rgba(244,239,227,.2);border-radius:var(--r-m);padding:20px;transition:background .25s ease,border-color .25s ease}
-.mes:hover{background:rgba(244,239,227,.06)}
-.mes h3{font-size:1.15rem;margin-bottom:12px}
-.mes ul{margin:0;padding:0;list-style:none;display:grid;gap:7px;font-size:.92rem;color:rgba(244,239,227,.74)}
-.mes.actual{background:var(--maiz);border-color:var(--maiz)}
-.mes.actual h3,.mes.actual ul{color:var(--cafe)}
-.mes.actual .aqui{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(51,38,28,.65);display:block;margin-top:14px}
+/* ---------- CALENDARIO DE 4 ESTACIONES ---------- */
+.estaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+@media(max-width: 900px) {
+  .estaciones-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 520px) {
+  .estaciones-grid { grid-template-columns: 1fr; }
+}
+
+.tarjeta-estacion {
+  border: 1px solid rgba(244,239,227,.2);
+  border-radius: var(--r-m);
+  padding: 22px 18px;
+  background: rgba(244,239,227,.03);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all .25s ease;
+}
+.tarjeta-estacion:hover {
+  background: rgba(244,239,227,.07);
+  border-color: rgba(244,239,227,.35);
+}
+.tarjeta-estacion.actual {
+  background: var(--maiz);
+  border-color: var(--maiz);
+  color: var(--cafe);
+}
+.estacion-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.estacion-titulo {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin: 0;
+}
+.tarjeta-estacion.actual .estacion-titulo {
+  color: var(--cafe);
+}
+.estacion-meses {
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(244,239,227,.6);
+}
+.tarjeta-estacion.actual .estacion-meses {
+  color: rgba(51,38,28,.7);
+}
+.estacion-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .92rem;
+  color: rgba(244,239,227,.82);
+}
+.tarjeta-estacion.actual .estacion-lista {
+  color: var(--cafe);
+}
+.estacion-badge {
+  display: inline-block;
+  margin-top: auto;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--terracota);
+  background: var(--crema);
+  padding: 4px 8px;
+  border-radius: 999px;
+  align-self: start;
+}
 
 /* ---------- participa ---------- */
-.participa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(30px,4vw,60px);align-items:start}
+.participa{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(24px,4vw,60px);align-items:start}
 @media(max-width:900px){.participa{grid-template-columns:1fr}}
-.votos{display:grid;gap:12px;margin:26px 0}
-.voto{position:relative;border:1px solid var(--linea);border-radius:var(--r-m);padding:14px 18px;background:#fff;display:flex;align-items:center;gap:14px;overflow:hidden;transition:border-color .2s ease}
+.votos{display:grid;gap:10px;margin:20px 0}
+.voto{position:relative;border:1px solid var(--linea);border-radius:var(--r-m);padding:12px 16px;background:#fff;display:flex;align-items:center;gap:12px;overflow:hidden;transition:border-color .2s ease}
 .voto:hover{border-color:var(--olivo)}
 .voto[aria-pressed="true"]{border-color:var(--terracota)}
 .barra{position:absolute;inset:0 auto 0 0;width:0;background:rgba(227,176,63,.28);transition:width .7s cubic-bezier(.2,.8,.2,1)}
 .voto span{position:relative}
-.voto .nombre{font-weight:600;flex:1;text-align:left}
-.voto .pct{color:var(--tinta-suave);font-size:.9rem;opacity:0;transition:opacity .4s ease}
+.voto .nombre{font-weight:600;flex:1;text-align:left;font-size:.95rem}
+.voto .pct{color:var(--tinta-suave);font-size:.85rem;opacity:0;transition:opacity .4s ease}
 .resultados .pct{opacity:1}
-.hoja-voto{background:#fff;border-radius:var(--r-l);padding:clamp(24px,3vw,34px)}
-.confirmacion{margin-top:18px;padding:14px 18px;border-radius:var(--r-m);background:rgba(74,87,51,.1);color:var(--olivo-hondo);font-size:.95rem;display:none}
+.hoja-voto{background:#fff;border-radius:var(--r-l);padding:clamp(20px,3vw,34px)}
+.confirmacion{margin-top:14px;padding:12px 16px;border-radius:var(--r-m);background:rgba(74,87,51,.1);color:var(--olivo-hondo);font-size:.9rem;display:none}
 .confirmacion.visible{display:block}
-.campo{display:flex;gap:10px;margin-top:14px}
-.campo input{flex:1;min-width:0;border:1px solid var(--linea);background:var(--crema);border-radius:999px;padding:.82rem 1.2rem;font:inherit;font-size:.95rem}
+.campo{display:flex;gap:8px;margin-top:12px}
+.campo input{flex:1;min-width:0;border:1px solid var(--linea);background:var(--crema);border-radius:999px;padding:.75rem 1rem;font:inherit;font-size:.9rem}
 .campo input:focus{outline:none;border-color:var(--olivo)}
 .conmutador{display:inline-flex;background:var(--crema);border-radius:999px;padding:4px;gap:4px;margin-top:6px}
-.conmutador button{border:none;background:none;border-radius:999px;padding:.4rem 1rem;font-size:.9rem;color:var(--tinta-suave)}
+.conmutador button{border:none;background:none;border-radius:999px;padding:.35rem .85rem;font-size:.85rem;color:var(--tinta-suave)}
 .conmutador button[aria-pressed="true"]{background:var(--olivo);color:var(--crema)}
-.nota{font-size:.84rem;color:var(--tinta-suave);margin-top:14px}
+.nota{font-size:.8rem;color:var(--tinta-suave);margin-top:12px}
 
 /* ---------- impacto ---------- */
-.impacto{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px);margin-top:44px}
+.impacto{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,30px);margin-top:36px}
 @media(max-width:800px){.impacto{grid-template-columns:1fr}}
-.indicador{border:1px solid var(--linea);border-radius:var(--r-m);padding:28px;background:#fff}
-.indicador h3{margin-bottom:8px}
-.indicador .estado{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--terracota);display:block;margin-bottom:12px}
-.indicador p{font-size:.94rem;color:var(--tinta-suave);margin:0}
-.franja-impacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,4vw,54px);align-items:center}
+.indicador{border:1px solid var(--linea);border-radius:var(--r-m);padding:22px;background:#fff}
+.indicador h3{margin-bottom:6px;font-size:1.15rem}
+.indicador .estado{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--terracota);display:block;margin-bottom:10px}
+.indicador p{font-size:.9rem;color:var(--tinta-suave);margin:0}
+.franja-impacto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(20px,4vw,54px);align-items:center}
 @media(max-width:860px){.franja-impacto{grid-template-columns:1fr}}
 .franja-impacto img{border-radius:var(--r-l);aspect-ratio:4/3;object-fit:cover;width:100%}
 
 /* ---------- footer ---------- */
-footer{background:var(--cafe);color:var(--crema);padding-block:64px 34px}
-.pie-rejilla{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:34px}
+footer{background:var(--cafe);color:var(--crema);padding-block:48px 28px}
+.pie-rejilla{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:28px}
 @media(max-width:760px){.pie-rejilla{grid-template-columns:1fr}}
-footer h3{color:var(--crema);font-size:1.8rem;margin-bottom:8px}
-footer p{color:rgba(244,239,227,.7);font-size:.95rem}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-footer a{color:rgba(244,239,227,.78);text-decoration:none;font-size:.95rem}
+footer h3{color:var(--crema);font-size:1.6rem;margin-bottom:8px}
+footer p{color:rgba(244,239,227,.7);font-size:.9rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{color:rgba(244,239,227,.78);text-decoration:none;font-size:.9rem}
 footer a:hover{color:var(--maiz)}
-.titulo-pie{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,239,227,.45);margin-bottom:16px}
-.aviso{margin-top:46px;padding-top:22px;border-top:1px solid rgba(244,239,227,.18);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.85rem;color:rgba(244,239,227,.55)}
+.titulo-pie{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,239,227,.45);margin-bottom:12px}
+.aviso{margin-top:36px;padding-top:18px;border-top:1px solid rgba(244,239,227,.18);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.8rem;color:rgba(244,239,227,.55)}
 
 /* ---------- entradas al hacer scroll ---------- */
 .aparece{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -275,9 +512,33 @@ footer a:hover{color:var(--maiz)}
 }
 
 /* ---------- marcador de imagen faltante ---------- */
-.falta{display:grid;place-content:center;gap:6px;text-align:center;padding:18px;width:100%;height:100%;min-height:150px;
+.falta{display:grid;place-content:center;gap:6px;text-align:center;padding:18px;width:100%;height:100%;min-height:140px;
   background:repeating-linear-gradient(135deg,var(--crema-2) 0 12px,#e2d8c3 12px 24px);color:var(--tinta-suave);font-size:.8rem}
 .falta b{font-family:var(--serif);font-size:1rem;color:var(--cafe)}
+
+/* ---------- añadidos: productores, etiquetas y precios ---------- */
+.rejilla-prod{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(16px,2vw,28px);margin-top:clamp(28px,3vw,52px)}
+.tarjeta-prod{background:var(--crema);color:var(--tinta);border-radius:var(--r-m);overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(51,38,28,.08)}
+.tarjeta-prod img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.tarjeta-prod .txt{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tarjeta-prod h3{font-size:1.15rem}
+.tarjeta-prod .lugar{color:var(--terracota);font-size:.85rem;margin:0}
+.tarjeta-prod p.des{font-size:.88rem;color:var(--tinta-suave);margin:0}
+.tarjeta-prod .acciones{margin-top:auto;padding-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mini{border:1px solid var(--linea);background:transparent;border-radius:999px;padding:.35rem .85rem;font-size:.8rem;color:var(--olivo);transition:all .2s ease;text-decoration:none;display:inline-flex;gap:.3rem;align-items:center}
+.mini:hover{background:rgba(74,87,51,.1);border-color:var(--olivo)}
+.mini.video{color:var(--terracota);border-color:rgba(176,84,47,.35)}
+.mini.video:hover{background:rgba(176,84,47,.1)}
+.insignia{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave)}
+.cinta{display:flex;flex-wrap:wrap;gap:6px}
+.pastilla{font-size:.75rem;border:1px solid var(--linea);border-radius:999px;padding:.15rem .55rem;color:var(--tinta-suave);background:var(--crema)}
+.precio.monto{color:var(--olivo);font-weight:700;letter-spacing:.02em;text-transform:none;font-size:.95rem}
+.conteo{font-size:.88rem;color:var(--tinta-suave);margin:0 0 16px}
+.modal-cuerpo .prod-lista{display:grid;gap:8px;margin-top:6px}
+.modal-cuerpo .prod-lista a{font-size:.82rem}
+.leyenda{font-size:.82rem;color:rgba(244,239,227,.6);margin-top:20px}
+.escena-nopal{aspect-ratio:4/5}
+@media(max-width:900px){.escena-nopal{aspect-ratio:1/1}}
 </style>
 </head>
 <body>
@@ -290,9 +551,9 @@ footer a:hover{color:var(--maiz)}
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Secciones">
       <a href="#como-funciona">Cómo funciona</a>
-      <a href="#menu">Esta semana</a>
+      <a href="#menu">El menú</a>
       <a href="#mapa">Productores</a>
-      <a href="#nopal">Un ingrediente</a>
+      <a href="#jitomate">Un ingrediente</a>
       <a href="#calendario">Temporadas</a>
       <a href="#participa">Participa</a>
     </nav>
@@ -305,17 +566,17 @@ footer a:hover{color:var(--maiz)}
 <section class="hero envoltura">
   <div class="hero-rejilla">
     <div>
-      <span class="temporada"><span class="pulso"></span>Temporada actual · Septiembre</span>
+      <span class="temporada"><span class="pulso"></span>Menú de temporada · Verano</span>
       <h1>Lo que da la tierra,<br><em>llega a tu mesa.</em></h1>
-      <p class="intro">Descubre un menú que cambia con las cosechas, los productores y las posibilidades de cada temporada.</p>
+      <p class="intro">Cada platillo del menú de Recaudo tiene nombre y apellido detrás: la familia que cosechó el jitomate, quien recolectó las setas, quien cuida las gallinas. Este es el menú visto desde el campo.</p>
       <div class="hero-botones">
-        <a class="btn btn-solido" href="#menu">Explorar el menú vivo</a>
+        <a class="btn btn-solido" href="#menu">Explorar el menú</a>
         <a class="btn btn-linea" href="#mapa">Conocer a los productores</a>
       </div>
     </div>
     <figure class="hero-foto" style="margin:0">
-      <img src="i1.jpg" alt="Composición de ingredientes locales de temporada: setas, nopales, jitomates, chiles, maíz y hierbas frescas">
-      <figcaption class="sello"><span><b>Menú<br>Vivo</b><span>Cosecha de hoy</span></span></figcaption>
+      <img src="i1.jpg" alt="Mesa de Recaudo con ingredientes de temporada: jitomates, espárragos, setas, huevo de traspatio y hierbas frescas">
+      <figcaption class="sello"><span><b>Menú<br>Vivo</b><span>Verano</span></span></figcaption>
     </figure>
   </div>
 </section>
@@ -328,7 +589,7 @@ footer a:hover{color:var(--maiz)}
         <p class="rotulo">Así funciona el Menú Vivo</p>
         <h2>El menú se escribe tres veces: en el campo, en la cocina y en la mesa.</h2>
       </div>
-      <p class="intro">No partimos de una carta fija. Partimos de lo que hay. Cada semana revisamos con nuestros productores qué está listo para cortarse y a partir de ahí decidimos qué se cocina.</p>
+      <p class="intro">Trabajamos con productores de Cholula, Tepeyahualco, Totimehuacan, Nextetelco y otras comunidades cercanas. Lo que está listo para cortarse define el menú de temporada; lo que se da todo el año sostiene la carta de siempre.</p>
     </div>
     <div class="pasos">
       <article class="paso aparece">
@@ -339,7 +600,7 @@ footer a:hover{color:var(--maiz)}
           <path d="M14 42h20" stroke-linecap="round"/>
         </svg>
         <h3>El campo marca el ritmo</h3>
-        <p>Identificamos qué ingredientes están disponibles con nuestros productores.</p>
+        <p>Janet y Juan avisan cuándo hay brote de setas; Don Antonio, cuándo el jitomate de Nextetelco está en su punto.</p>
       </article>
       <article class="paso aparece">
         <span class="num">Después</span>
@@ -349,7 +610,7 @@ footer a:hover{color:var(--maiz)}
           <path d="M20 16c0-3 4-3 4-6M28 16c0-3 3-3 3-5" stroke-linecap="round"/>
         </svg>
         <h3>La cocina crea algo nuevo</h3>
-        <p>El equipo transforma esos ingredientes en platillos especiales.</p>
+        <p>Con esa cosecha nacen los platillos de temporada: setas, zarzamoras, miel fresca y jitomates asados.</p>
       </article>
       <article class="paso aparece">
         <span class="num">Al final</span>
@@ -359,7 +620,7 @@ footer a:hover{color:var(--maiz)}
           <path d="M40 8 34 14" stroke-linecap="round"/>
         </svg>
         <h3>Tú descubres la temporada</h3>
-        <p>Conoces el origen, la historia y el sabor de cada propuesta antes de probarla.</p>
+        <p>Cada platillo muestra de qué huerta, traspatio o apiario viene antes de que lo pruebes.</p>
       </article>
     </div>
   </div>
@@ -370,122 +631,143 @@ footer a:hover{color:var(--maiz)}
   <div class="envoltura">
     <div class="encabezado-seccion aparece">
       <div>
-        <p class="rotulo">Esta semana en Recaudo</p>
-        <h2>Lo que hoy está dando el campo poblano.</h2>
+        <p class="rotulo">El menú de Recaudo</p>
+        <h2>Platillos de la carta y quién los hizo posible.</h2>
       </div>
-      <p class="intro">Filtra por momento del día, por ingrediente o por la persona que lo cultiva. Toca cualquier platillo para leer su historia completa.</p>
+      <p class="intro">Selecciona una categoría o filtra sutilmente por momento. Toca cualquier platillo para abrir su información detallada.</p>
     </div>
 
+    <!-- FILTROS SÚTILES Y DISCRETOS -->
     <div class="filtros aparece" id="filtros">
-      <div class="grupo-filtro" data-grupo="momento">
-        <span>Momento</span>
-        <button class="chip" data-valor="todo" aria-pressed="true">Todo</button>
-        <button class="chip" data-valor="desayunos" aria-pressed="false">Desayunos</button>
-        <button class="chip" data-valor="comidas" aria-pressed="false">Comidas</button>
+      <div class="barra-filtros-principal">
+        <div class="subfiltros-grupo" id="grupoMomento">
+          <button class="selector-discreto" data-valor="todo" aria-pressed="true">Todo el día</button>
+          <button class="selector-discreto" data-valor="desayunos" aria-pressed="false">Desayunos</button>
+          <button class="selector-discreto" data-valor="comidas" aria-pressed="false">Comidas</button>
+          <button class="selector-discreto" data-valor="bebidas" aria-pressed="false">Bebidas</button>
+        </div>
+
+        <div class="subfiltros-grupo" id="grupoCarta">
+          <button class="selector-discreto" data-valor="todo" aria-pressed="true">Toda la carta</button>
+          <button class="selector-discreto" data-valor="temporada" aria-pressed="false">Temporada</button>
+          <button class="selector-discreto" data-valor="anual" aria-pressed="false">De siempre</button>
+        </div>
       </div>
-      <div class="grupo-filtro" data-grupo="ingrediente">
-        <span>Ingredientes</span>
-        <button class="chip" data-valor="todo" aria-pressed="true">Todos</button>
-        <button class="chip" data-valor="Setas" aria-pressed="false">Setas</button>
-        <button class="chip" data-valor="Nopal" aria-pressed="false">Nopal</button>
-        <button class="chip" data-valor="Huevo" aria-pressed="false">Huevo</button>
-        <button class="chip" data-valor="Quinoa" aria-pressed="false">Quinoa</button>
-        <button class="chip" data-valor="Chía" aria-pressed="false">Chía</button>
-        <button class="chip" data-valor="Chícharo" aria-pressed="false">Chícharo</button>
-      </div>
-      <div class="grupo-filtro" data-grupo="productor">
-        <span>Productores</span>
-        <button class="chip" data-valor="todo" aria-pressed="true">Todos</button>
-        <button class="chip" data-valor="Cuanala" aria-pressed="false">Cuanala</button>
-        <button class="chip" data-valor="Tepeyahualco" aria-pressed="false">Tepeyahualco</button>
-        <button class="chip" data-valor="San Francisco Totimehuacan" aria-pressed="false">Totimehuacan</button>
-        <button class="chip" data-valor="San Francisco Acatepec" aria-pressed="false">Acatepec</button>
-        <button class="chip" data-valor="Huertas de Cholula" aria-pressed="false">Huertas de Cholula</button>
-      </div>
+
+      <!-- CATEGORÍAS COMO PESTAÑAS (TABS) -->
+      <nav class="barra-categorias" id="barraCategorias" aria-label="Categorías del menú"></nav>
     </div>
 
-    <div class="rejilla-menu" id="rejillaMenu"></div>
-    <p class="vacio" id="vacio" hidden>No hay platillos con esa combinación. Cambia un filtro para ver el resto de la cosecha.</p>
+    <p class="conteo" id="conteo"></p>
+    <div class="contenedor-menu-lista" id="rejillaMenu"></div>
+    <p class="vacio" id="vacio" hidden>No hay platillos en esta categoría con el filtro seleccionado.</p>
   </div>
 </section>
 
-<!-- ===== MAPA ===== -->
+<!-- ===== MAPA Y PRODUCTORES ENRIQUECIDO ===== -->
 <section class="seccion hoja" id="mapa">
   <div class="envoltura">
     <div class="encabezado-seccion aparece">
       <div>
         <p class="rotulo">Del productor a tu mesa</p>
-        <h2>Cuatro comunidades a menos de una hora de Cholula.</h2>
+        <h2>Doce familias productoras alrededor de Cholula.</h2>
       </div>
-      <p class="intro">Un mapa ilustrativo de la región. Toca cada punto para conocer a quien siembra, cría o recolecta lo que llega a la cocina.</p>
+      <p class="intro">Un mapa ilustrativo de la región. Toca cada punto para conocer a quien siembra, cría o recolecta lo que llega a la cocina; abajo están todos, con sus videos y los platillos donde aparecen.</p>
     </div>
     <div class="mapa-envoltura">
       <div class="lienzo aparece" id="lienzo">
         <svg viewBox="0 0 800 550" aria-hidden="true">
           <defs>
             <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#46522F"/><stop offset="100%" stop-color="#36402A"/>
+              <stop offset="0%" stop-color="#2D381F"/>
+              <stop offset="100%" stop-color="#1E2614"/>
+            </linearGradient>
+            <linearGradient id="volcanGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#55633C"/>
+              <stop offset="100%" stop-color="#344023"/>
             </linearGradient>
           </defs>
+          <!-- Fondo cartográfico -->
           <rect width="800" height="550" fill="url(#cielo)"/>
-          <path d="M0 330c90-70 150 40 250-10s150-90 240-40 190-10 310-70v340H0Z" fill="#3E4A2C" opacity=".9"/>
-          <path d="M0 400c120-50 190 30 300 0s190-60 300-20 160 0 200-20v190H0Z" fill="#45522F"/>
-          <path d="M120 300c40-90 70-120 95-120s60 35 95 120Z" fill="#5A6640" opacity=".85"/>
-          <path d="M180 300c22-52 40-70 55-70s34 20 54 70Z" fill="#6B764C" opacity=".7"/>
-          <path d="M520 250c34-76 58-100 78-100s48 28 78 100Z" fill="#525E3A" opacity=".8"/>
-          <g stroke="#6E7A50" stroke-width="1.2" opacity=".55" fill="none">
-            <path d="M0 470c140-30 260 20 400 0s260-40 400-10"/>
-            <path d="M0 500c140-26 260 22 400 2s260-36 400-8"/>
-            <path d="M40 440c130-24 230 16 360 0s240-32 360-6"/>
+          
+          <!-- Cuadrícula topográfica sutil -->
+          <g stroke="#ffffff" stroke-width="0.5" opacity="0.06" stroke-dasharray="4 8">
+            <line x1="0" y1="100" x2="800" y2="100"/>
+            <line x1="0" y1="200" x2="800" y2="200"/>
+            <line x1="0" y1="300" x2="800" y2="300"/>
+            <line x1="0" y1="400" x2="800" y2="400"/>
+            <line x1="0" y1="500" x2="800" y2="500"/>
+            <line x1="160" y1="0" x2="160" y2="550"/>
+            <line x1="320" y1="0" x2="320" y2="550"/>
+            <line x1="480" y1="0" x2="480" y2="550"/>
+            <line x1="640" y1="0" x2="640" y2="550"/>
           </g>
-          <g fill="#5C683E" opacity=".55">
-            <circle cx="90" cy="360" r="14"/><circle cx="130" cy="372" r="10"/>
-            <circle cx="690" cy="330" r="14"/><circle cx="660" cy="345" r="9"/>
-          </g>
+
+          <!-- Silueta del Popocatépetl e Iztaccíhuatl al poniente -->
+          <path d="M 0 320 Q 80 220 140 180 Q 180 150 210 210 Q 250 170 300 280 Q 360 230 420 340 Z" fill="url(#volcanGrad)" opacity="0.7"/>
+          <path d="M 130 185 L 140 180 L 150 188 L 142 195 Z" fill="#FFFFFF" opacity="0.4"/> <!-- Nieve Popo -->
+
+          <!-- Curvas de nivel / Elevaciones valle de Puebla-Cholula -->
+          <path d="M0 380c90-60 160 30 260-20s150-80 250-30 190-10 290-60v280H0Z" fill="#3A4628" opacity=".8"/>
+          <path d="M0 430c120-40 200 20 310-10s190-50 310-15 160 0 180-10v155H0Z" fill="#42502D"/>
+          
+          <!-- Río / Atoyac esquemático -->
+          <path d="M 180 550 C 220 440, 290 400, 380 320 C 440 270, 520 220, 610 160 C 680 115, 730 60, 800 0" fill="none" stroke="#5E7343" stroke-width="6" opacity="0.5" stroke-linecap="round"/>
+          <path d="M 180 550 C 220 440, 290 400, 380 320 C 440 270, 520 220, 610 160 C 680 115, 730 60, 800 0" fill="none" stroke="#E2B03F" stroke-width="1" opacity="0.4" stroke-dasharray="6 6"/>
+
+          <!-- Indicadores de Regiones -->
+          <text x="35" y="40" fill="#E2B03F" font-family="Georgia, serif" font-size="14" font-style="italic" opacity="0.6">Valle de Cholula y los Volcanes</text>
+          <text x="680" y="520" fill="#F4EFE3" font-family="sans-serif" font-size="10" letter-spacing="2" opacity="0.3">REGIÓN PUEBLA</text>
         </svg>
-        <button class="punto" style="left:26%;top:34%" data-prod="cuanala" aria-pressed="false"><i></i><b>Cuanala</b></button>
-        <button class="punto" style="left:72%;top:26%" data-prod="tepeyahualco" aria-pressed="false"><i></i><b>Tepeyahualco</b></button>
-        <button class="punto" style="left:58%;top:70%" data-prod="totimehuacan" aria-pressed="false"><i></i><b>Totimehuacan</b></button>
-        <button class="punto" style="left:31%;top:62%" data-prod="acatepec" aria-pressed="false"><i></i><b>Acatepec</b></button>
+
+        <!-- Puntos interactivos enriquecidos con nombre completo -->
+        <button class="punto" style="left:26%;top:42%" data-prod="janet-juan" aria-pressed="false"><i></i><b>Janet y Juan · Setas</b></button>
+        <button class="punto" style="left:76%;top:24%" data-prod="mauro" aria-pressed="false"><i></i><b>Don Mauro · Quinoa</b></button>
+        <button class="punto" style="left:58%;top:68%" data-prod="rafa-elena" aria-pressed="false"><i></i><b>Rafa y Elena · Huevo</b></button>
+        <button class="punto" style="left:34%;top:74%" data-prod="antonio" aria-pressed="false"><i></i><b>Don Antonio · Jitomate</b></button>
       </div>
       <article class="tarjeta-productor aparece" id="tarjetaProd"></article>
     </div>
+
+    <div class="rejilla-prod" id="rejillaProd"></div>
+    <p class="leyenda">Los puntos del mapa son una referencia ilustrativa de la región; no corresponden a coordenadas exactas.</p>
   </div>
 </section>
 
-<!-- ===== NOPAL ===== -->
-<section class="seccion" id="nopal">
+<!-- ===== UN INGREDIENTE: JITOMATE ===== -->
+<section class="seccion" id="jitomate">
   <div class="envoltura">
     <div class="encabezado-seccion aparece">
       <div>
         <p class="rotulo">Un ingrediente, muchas posibilidades</p>
-        <h2>Una sola cosecha de nopal, cinco platillos distintos.</h2>
+        <h2>Los jitomates de Don Antonio recorren la carta completa.</h2>
       </div>
-      <p class="intro">Cuando llega una caja grande de Acatepec, la cocina no elige una receta: elige cinco. La penca tierna va al ceviche, la más firme al caldillo, los recortes al relleno. Así casi nada se queda fuera del plato.</p>
+      <p class="intro">El jitomate de Nextetelco es el ingrediente que más veces aparece en el menú de Recaudo: entra en sopa, en pasta, en entrada, en los huevos de la mañana y hasta en la hamburguesa. Una misma caja se reparte entre la cocina de desayunos y la de comidas.</p>
     </div>
     <div class="nopal">
       <div>
-        <ul class="lista-nopal" id="listaNopal" role="tablist" aria-label="Preparaciones de nopal"></ul>
-        <p class="nota">Cinco preparaciones que nacen del mismo corte semanal.</p>
+        <ul class="lista-nopal" id="listaJitomate" role="tablist" aria-label="Platillos con jitomate de Nextetelco"></ul>
+        <p class="nota">Cinco preparaciones que salen del mismo corte semanal.</p>
       </div>
-      <div class="escena-nopal aparece" id="escenaNopal">
-        <div class="pie-nopal" id="pieNopal"></div>
+      <div class="escena-nopal aparece" id="escenaJitomate">
+        <div class="pie-nopal" id="pieJitomate"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CALENDARIO ===== -->
+<!-- ===== CALENDARIO DIVIDIDO EN 4 ESTACIONES ===== -->
 <section class="seccion hoja" id="calendario">
   <div class="envoltura">
     <div class="encabezado-seccion aparece">
       <div>
         <p class="rotulo">El campo cambia, el menú también</p>
-        <h2>Un año visto desde la milpa.</h2>
+        <h2>Las cuatro estaciones de la milpa poblana.</h2>
       </div>
-      <p class="intro">Referencias ilustrativas de lo que suele darse en la región. La disponibilidad real depende de cada cosecha, de la lluvia y de lo que decidan los productores.</p>
+      <p class="intro">Referencias de la cosecha regional que marca la pauta en nuestra cocina. Cada estación transforma el menú con ingredientes de origen fresco.</p>
     </div>
-    <div class="tira" id="tira"></div>
+
+    <div class="estaciones-grid" id="estacionesGrid"></div>
   </div>
 </section>
 
@@ -531,25 +813,25 @@ footer a:hover{color:var(--maiz)}
       <div>
         <p class="rotulo">Por qué lo hacemos así</p>
         <h2>Cocinar con la temporada es una decisión, no una limitante.</h2>
-        <p class="intro">El Menú Vivo busca fortalecer el vínculo con quienes siembran cerca de nosotros, aprovechar cada ingrediente hasta donde alcance y darle al cliente una razón para volver: nunca encuentra exactamente la misma carta dos veces.</p>
+        <p class="intro">Comprometidos con apoyar al comercio justo, elaboramos nuestros platillos con ingredientes de temporada provenientes de productores locales. Eso significa que la carta cambia, que algunos platillos duran solo unas semanas y que el dinero de cada cuenta se queda cerca de casa.</p>
       </div>
-      <img src="i20.jpg" alt="Manos de una persona productora sosteniendo verduras recién cosechadas en el campo">
+      <img src="i14.jpg" alt="Manos de una persona productora sosteniendo verduras recién cosechadas en el campo poblano">
     </div>
     <div class="impacto">
       <article class="indicador aparece">
-        <h3>Ingredientes locales</h3>
-        <span class="estado">Depende de cada cosecha</span>
-        <p>La lista crece y se reduce con el año. Lo que no está en el campo, no está en la carta.</p>
-      </article>
-      <article class="indicador aparece">
         <h3>Productores conectados</h3>
-        <span class="estado">En constante crecimiento</span>
-        <p>Cada temporada abre la puerta a una familia productora más de la región de Cholula y alrededores.</p>
+        <span class="estado" id="numProd">12 familias</span>
+        <p>De Cuanala a Tepeyahualco: setas, quinoa, huevo, jitomate, chía, miel, café, queso, hierbas y nopales.</p>
       </article>
       <article class="indicador aparece">
-        <h3>Platillos inspirados en la temporada</h3>
-        <span class="estado">Se escriben cada semana</span>
-        <p>Un mismo ingrediente puede recorrer la carta completa: entrada, fondo, guarnición y hasta el pan.</p>
+        <h3>Platillos con origen</h3>
+        <span class="estado" id="numPlat">—</span>
+        <p>Cada uno indica de qué huerta, traspatio o apiario vienen sus ingredientes principales.</p>
+      </article>
+      <article class="indicador aparece">
+        <h3>Platillos de temporada</h3>
+        <span class="estado">Cambian con la cosecha</span>
+        <p>Los platillos de temporada pueden variar sin previo aviso. Lo que no está en el campo, no está en la carta.</p>
       </article>
     </div>
   </div>
@@ -562,6 +844,7 @@ footer a:hover{color:var(--maiz)}
       <div>
         <h3>Recaudo</h3>
         <p>Del productor a tu mesa.<br>San Andrés Cholula, Puebla, México.</p>
+        <p style="font-size:.86rem">Desayunos de 8:00 a 13:30 todos los días.<br>Precios en pesos mexicanos.</p>
       </div>
       <div>
         <p class="titulo-pie">Encuéntranos</p>
@@ -574,16 +857,17 @@ footer a:hover{color:var(--maiz)}
       <div>
         <p class="titulo-pie">Menú Vivo</p>
         <ul>
-          <li><a href="#menu">Esta semana</a></li>
+          <li><a href="#menu">El menú</a></li>
           <li><a href="#mapa">Productores</a></li>
-          <li><a href="#calendario">Calendario de temporadas</a></li>
+          <li><a href="#jitomate">Un ingrediente</a></li>
+          <li><a href="#calendario">Estaciones del año</a></li>
           <li><a href="#participa">Vota un ingrediente</a></li>
         </ul>
       </div>
     </div>
     <div class="aviso">
-      <span>Este sitio es un prototipo conceptual de Menú Vivo.</span>
-      <span>Platillos y precios mostrados con fines de demostración.</span>
+      <span>Los platillos de temporada pueden variar sin previo aviso.</span>
+      <span>Prototipo conceptual del Menú Vivo de Recaudo.</span>
     </div>
   </div>
 </footer>
@@ -597,99 +881,380 @@ footer a:hover{color:var(--maiz)}
 </div>
 
 <script>
-/* ---------------- datos ---------------- */
-const platillos = [
-  {id:"setas",nombre:"Tacos de setas",img:"i2.jpg",momento:"comidas",etiqueta:"Temporada de lluvias",
-   desc:"Setas salteadas, tortillas de maíz y acompañamientos de la casa.",
-   ingrediente:"Setas",productor:"Cuanala",casa:"Familia recolectora de Cuanala",
-   historia:"Las setas llegan en canastas dos veces por semana, cortadas muy temprano para que no pierdan humedad. En la cocina se saltean a fuego alto con poco aceite, sin taparlas, para que suelten su propio jugo y se concentre el sabor antes de llegar a la tortilla.",
-   viaje:"De la humedad de Cuanala al comal, en menos de un día."},
-  {id:"nopal5",nombre:"Nopal en cinco formas",img:"i3.jpg",momento:"comidas",etiqueta:"Todo el año",
-   desc:"Una misma cosecha, distintas posibilidades: sopa, ceviche, caldillo, nopal relleno y tacos.",
-   ingrediente:"Nopal",productor:"San Francisco Acatepec",casa:"Huerta familiar de Acatepec",
-   historia:"Una caja de nopal da para mucho más de un platillo. Las pencas tiernas se van crudas al ceviche, las firmes al caldillo, y los recortes que normalmente se tirarían terminan como relleno o dentro de un taco con pico de gallo.",
-   viaje:"Un solo corte semanal que recorre cinco preparaciones de la carta."},
-  {id:"huevos",nombre:"Huevos de temporada",img:"i4.jpg",momento:"desayunos",etiqueta:"Desayuno del día",
-   desc:"Huevos preparados con ingredientes frescos que cambian según la disponibilidad del campo.",
-   ingrediente:"Huevo",productor:"San Francisco Totimehuacan",casa:"Traspatio de San Francisco Totimehuacan",
-   historia:"Huevo de traspatio, de gallinas que andan sueltas y comen de todo. La yema es más oscura y firme, así que el platillo se arma alrededor de ella: lo que la acompaña cambia cada semana según lo que haya en la caja de verduras.",
-   viaje:"Del traspatio a la cocina, sin bodegas intermedias."},
-  {id:"focaccia",nombre:"Focaccia de temporada",img:"i5.jpg",momento:"desayunos",etiqueta:"Horneado del día",
-   desc:"Pan artesanal acompañado de ingredientes seleccionados de la cosecha.",
-   ingrediente:"Productos de temporada",productor:"Huertas de Cholula",casa:"Varias huertas de la región",
-   historia:"La masa es siempre la misma; lo que cambia es lo que se le pone encima. Un mes son jitomates y hierbas, otro calabaza y flor, otro chiles asados. La focaccia funciona como un calendario comestible de lo que hay esa semana.",
-   viaje:"Se decide la mañana del horneado, con lo que llegó el día anterior."},
-  {id:"chicharo",nombre:"Tosta de chícharo",img:"i6.jpg",momento:"desayunos",etiqueta:"Cosecha corta",
-   desc:"Chícharo fresco machacado sobre pan tostado, con hierbas y semillas de la región.",
-   ingrediente:"Chícharo",productor:"Huertas de Cholula",casa:"Huertas de los alrededores de Cholula",
-   historia:"El chícharo fresco tiene una ventana muy corta. Se machaca el mismo día para conservar el dulzor y se equilibra con hierbas verdes y un poco de acidez, en lugar de cocerlo hasta perder el color.",
-   viaje:"Unas cuantas semanas al año, y luego desaparece de la carta."},
-  {id:"chia",nombre:"Bowl de chía",img:"i7.jpg",momento:"desayunos",etiqueta:"Mañanas frescas",
-   desc:"Chía hidratada, fruta de temporada y miel de productores locales.",
-   ingrediente:"Chía",productor:"Huertas de Cholula",casa:"Productores locales de chía y miel",
-   historia:"La chía se deja hidratar toda la noche. La fruta encima es la que esté en su punto esa semana y la miel viene de apiarios cercanos, así que su sabor también cambia según lo que estén floreando las abejas.",
-   viaje:"Dos ingredientes locales que cambian de carácter cada temporada."},
-  {id:"bisquet",nombre:"Bisquet con frutos rojos",img:"i8.jpg",momento:"desayunos",etiqueta:"Mientras dure la fruta",
-   desc:"Bisquet recién horneado con frutos rojos de la temporada.",
-   ingrediente:"Frutos rojos",productor:"Huertas de Cholula",casa:"Pequeños huertos de la región",
-   historia:"Cuando hay fruto rojo bueno, entra al menú; cuando se acaba, sale. El bisquet se hornea por lotes pequeños durante la mañana para que llegue tibio a la mesa.",
-   viaje:"Un postre de desayuno que solo existe unas semanas."},
-  {id:"nogada",nombre:"Chile en nogada vegetariano",img:"i9.jpg",momento:"comidas",etiqueta:"Agosto y septiembre",
-   desc:"Versión sin carne del clásico poblano, con relleno de frutas y semillas de la temporada.",
-   ingrediente:"Chile poblano",productor:"Huertas de Cholula",casa:"Productores de chile y fruta de la región",
-   historia:"El chile en nogada solo tiene sentido cuando coinciden el chile poblano, la manzana panochera, la pera lechera y la nuez de castilla. Esta versión cambia la carne por un relleno de frutas, semillas y verduras de la misma temporada.",
-   viaje:"Dos meses al año, cuando la región entera está en su punto."},
-  {id:"quinoa",nombre:"Plato de quinoa",img:"i10.jpg",momento:"comidas",etiqueta:"Cosecha de altura",
-   desc:"Quinoa de Tepeyahualco con verduras asadas, hierbas y aderezo de la casa.",
-   ingrediente:"Quinoa",productor:"Tepeyahualco",casa:"Productores de quinoa de Tepeyahualco",
-   historia:"La quinoa de Tepeyahualco se cultiva en tierras altas y frías. Se cuece en caldo de verduras en lugar de agua para que tome sabor, y se sirve con lo que haya salido bien esa semana en la parrilla.",
-   viaje:"Del altiplano poblano a un plato de comida corrida distinta."}
-];
-
+/* =========================================================
+   PRODUCTORES
+   ========================================================= */
 const productores = {
-  cuanala:{nombre:"Familia recolectora de Cuanala",lugar:"Cuanala, Puebla · Setas",img:"i11.jpg",
-    texto:"Producen setas en condiciones de humedad controlada y cortan por la madrugada. Su calendario manda: cuando hay brote grande, la cocina arma tacos; cuando es corto, se van a la focaccia o al caldo."},
-  tepeyahualco:{nombre:"Productores de quinoa de Tepeyahualco",lugar:"Tepeyahualco, Puebla · Quinoa",img:"i12.jpg",
-    texto:"Un grano de altura que se recupera poco a poco en la región. Llega limpio y seco, listo para cocerse, y aguanta bien de una temporada a otra."},
-  totimehuacan:{nombre:"Traspatio de San Francisco Totimehuacan",lugar:"San Francisco Totimehuacan · Huevo",img:"i13.jpg",
-    texto:"Gallinas de traspatio, sueltas y con dieta variada. La producción es limitada, así que el huevo se usa donde más se nota: en los desayunos del día."},
-  acatepec:{nombre:"Huerta familiar de San Francisco Acatepec",lugar:"San Francisco Acatepec · Nopal",img:"i14.jpg",
-    texto:"Nopal cortado a mano, penca por penca. De una sola entrega salen cinco preparaciones distintas, incluyendo los recortes que en otras cocinas terminarían en la basura."}
+  "janet-juan":{nombre:"Janet y Juan",producto:"Setas",lugar:"Cuanala, Cholula, Puebla",img:"i2.jpg",
+    texto:"Son los que le dan el sabor a nuestros famosos tacos de setas. Producen setas desde hace diez años en Cuanala y han probado variedades grises, cafés y blancas. Es un negocio de familia que lleva ya treinta años.",video:""},
+  "mauro":{nombre:"Don Mauro",producto:"Quinoa",lugar:"Tepeyahualco, Puebla",img:"i3.jpg",
+    texto:"Producción familiar de quinoa desde hace cuatro años. Cultiva quinoa roja, negra y blanca, y es la que le da el toque a los platillos de temporada, como el pastel de chocolate con harina de quinoa.",video:""},
+  "rafa-elena":{nombre:"Rafa y Elena",producto:"Huevo",lugar:"San Francisco Totimehuacan, Puebla",img:"i4.jpg",
+    texto:"Tienen gallinas de traspatio en San Francisco Totimehuacan y producen ellos mismos el alimento de sus aves, lo que da un huevo de alta calidad. Su huevo es el que aparece en casi todos los desayunos de Recaudo.",video:""},
+  "esteban":{nombre:"Don Esteban",producto:"Cilantro",lugar:"Región de Cholula, Puebla",img:"i5.jpg",
+    texto:"Su cilantro es el que perfuma el ceviche de mango y el pico de gallo de los chilaquiles. Corte fresco, entregado el mismo día en que se usa.",video:"https://youtu.be/bX1LhyjhJQ8?si=-nRi4Vc1U2GaTP9Y"},
+  "abraham-rufi":{nombre:"Abraham y Rufi",producto:"Hierbas y espinacas",lugar:"Región de Cholula, Puebla",img:"i6.jpg",
+    texto:"Cultivan hierbas frescas y espinacas. De su huerta sale la albahaca de los huevos frescos y rústicos, y la espinaca de los envueltos y florentinos.",video:"https://youtu.be/dHCIQdWz0zg?si=NGZgGHpO6gzWdf-E"},
+  "aurelio-ruben":{nombre:"Don Aurelio y Rubén",producto:"Chía",lugar:"Región de Puebla",img:"i7.jpg",
+    texto:"Productores de chía. Su semilla se hidrata toda la noche para el bowl de chía que se sirve con fruta de temporada y miel de maple.",video:"https://youtu.be/Qx-ol1apy88?si=JGjvPqvLBhUKwJbV"},
+  "helio":{nombre:"Helio",producto:"Zarzamora y frutos rojos",lugar:"Región de Puebla",img:"i8.jpg",
+    texto:"Cuando hay fruto rojo bueno, entra al menú: bisquets, tartas, mermeladas y el pastel de chocolate con jamaica y frutos rojos.",video:"https://youtu.be/qW6nIay73u0?si=1LEgMhaBkB-UO0jW"},
+  "facundo":{nombre:"Don Facundo",producto:"Miel y tejocote",lugar:"Región de Puebla",img:"i9.jpg",
+    texto:"Su miel endulza el té de primavera, los picantes de jengibre, la tarta de queso y los panqueques. El sabor cambia según lo que estén floreando las abejas.",video:"https://youtu.be/7n-ueVS5GfA?si=bZ0GjNaRp_IW7l9-"},
+  "antonio":{nombre:"Don Antonio",producto:"Jitomate",lugar:"Nextetelco, Puebla",img:"i10.jpg",
+    texto:"Sus jitomates asados son la base de la crema de jitomate, del concassé de los desayunos, de las pastas y de casi todos los emparedados. Es el ingrediente que más veces aparece en la carta.",video:"https://youtu.be/XpJgdIfpRNc?si=ajvaJse7kxBd3WHd"},
+  "flor":{nombre:"Flor",producto:"Queso de oveja",lugar:"Región de Puebla",img:"i11.jpg",
+    texto:"Elabora queso de oveja fresco y maduro. Aparece rallado sobre las nueve tapas, dentro de la sopa en pan y en los huevos primaveral y espárrago.",video:"https://youtu.be/FQAzHW1lkpQ?si=20j8dtk1rH6YZtse"},
+  "miguel":{nombre:"Don Miguel",producto:"Café",lugar:"Sierra de Puebla",img:"i12.jpg",
+    texto:"Su café es el que se muele cada mañana en Recaudo: del americano al flat white, pasando por el café sazonado con cardamomo y el especiado con canela, té limón y jengibre.",video:""},
+  "jorge":{nombre:"Don Jorge",producto:"Nopales",lugar:"Región de Cholula, Puebla",img:"i13.jpg",
+    texto:"Sus nopales son ingrediente estrella de los especiales de temporada: cuando llega una buena caja, la cocina decide ahí mismo en qué platillo entra.",video:""}
 };
 
-const nopalPlatos = [
-  {n:"Sopa de nopal",img:"i15.jpg",d:"Caldo ligero de jitomate y hierbas, con nopal en cubos que se agrega al final para que no pierda textura."},
-  {n:"Ceviche de nopal",img:"i16.jpg",d:"Penca tierna en crudo, curada con limón, cebolla y chile. La entrada más fresca de la temporada de calor."},
-  {n:"Caldillo de nopal",img:"i17.jpg",d:"Las pencas más firmes, guisadas despacio en un caldillo de chile seco hasta que se suavizan."},
-  {n:"Nopal relleno de queso",img:"i18.jpg",d:"Pencas enteras rellenas y asadas al comal, con los recortes aprovechados en la salsa que las acompaña."},
-  {n:"Tacos de nopal con pico de gallo",img:"i19.jpg",d:"Nopal asado, pico de gallo y tortilla de maíz. Lo que sobra del corte se vuelve el plato más sencillo y más pedido."}
+/* =========================================================
+   PLATILLOS DEL MENÚ CON HISTORIA/BREVE RESEÑA
+   ========================================================= */
+const platillos = [
+  /* ---------- DESAYUNOS · TEMPORADA ---------- */
+  {id:"bowl-chia",n:"Bowl de chía",img:"i15.jpg",mom:["desayunos"],carta:"temporada",sec:"Bowls de fruta",precio:110,
+   d:"Chía con fruta de temporada, endulzada con miel de maple y semillas.",
+   historia:"Un plato nacido del deseo de combinar la hidratación ancestral de la chía regional con la dulzura de la primera cosecha de temporada.",
+   prods:["aurelio-ruben","facundo"],ing:["Chía","Miel"]},
+  {id:"rafaga",n:"Ráfaga",img:"i15.jpg",mom:["desayunos"],carta:"temporada",sec:"Bowls de fruta",precio:100,
+   d:"Espinacas, aguacate, mango, queso de oveja, avena caramelizada y aderezo de albahaca.",
+   historia:"Creado en la cocina como una ráfaga de frescura, balanceando lo saladito del queso de oveja con el dulzor del mango.",
+   prods:["abraham-rufi","flor"],ing:["Espinacas y hierbas","Queso de oveja"]},
+  {id:"bisquet-rojos",n:"Bisquet con frutos rojos",img:"i16.jpg",mom:["desayunos"],carta:"temporada",sec:"Bisquets",precio:100,
+   d:"Pan de mantequilla artesanal, relleno de frutos rojos salteados con miel y queso de cabra.",
+   historia:"Nuestra interpretación del bisquet tradicional, adaptado a los brotes frescos de zarzamoras cosechadas esta temporada.",
+   prods:["helio","facundo"],ing:["Frutos rojos","Miel"]},
+  {id:"primaveral",n:"Primaveral",img:"i17.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:125,
+   d:"Pan artesanal con paté de chícharo, aguacate criollo, arúgula, queso de oveja, un toque de chimichurri y dos huevos estrellados.",
+   historia:"Representa los tonos verdes y vibrantes que el campo adquiere en esta época del año al inicio de las cosechas.",
+   prods:["rafa-elena","flor"],ing:["Huevo","Queso de oveja"]},
+  {id:"esparrago",n:"Espárrago",img:"i17.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:125,
+   d:"Pan de masa madre con espárragos asados, queso de oveja maduro, un toque de chimichurri y dos huevos estrellados.",
+   historia:"Inspirado en los desayunos de campo sencillos pero abundantes que reconfortan la jornada de recolección.",
+   prods:["rafa-elena","flor"],ing:["Huevo","Queso de oveja"]},
+  {id:"temporada-huevo",n:"Temporada",img:"i17.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:130,
+   d:"Dos huevos estrellados sobre una cama de espárragos asados, con rábanos encurtidos, concassé de jitomate y almendras tostadas.",
+   historia:"El platillo insignia para celebrar los primeros brotes de la huerta, crujiente, ácido y suave a la vez.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"omelette",n:"Omelette",img:"i18.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:120,
+   d:"Huevos sazonados con hierbas. Rellenos a elegir: concassé de jitomate con espárragos; paté de chícharo con jitomate horneado; o queso de cabra con amaranto asado y jitomate.",
+   historia:"Versátil por naturaleza; la receta permite a los cocineros adaptar sus rellenos según la frescura del día.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"de-lenteja",n:"De lenteja",img:"i18.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:120,
+   d:"Tipo omelette con base de harina de lenteja. Rellenos a elegir: queso de pepita con espárragos; queso de garbanzo con amaranto y jitomate; o aguacate criollo con arúgula.",
+   historia:"Surgió para ofrecer una opción basada en leguminosas locales llena de nutrientes para las mañanas vivas.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"quiche",n:"Quiche",img:"i18.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:110,
+   d:"Base crocante de mantequilla, rellena de espárragos, jitomate horneado y queso de cabra.",
+   historia:"Una receta clásica horneada en casa que une la repostería artesanal con el toque rústico del queso local.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"motulenos",n:"Motuleños",img:"i19.jpg",mom:["desayunos"],carta:"temporada",sec:"Huevos",precio:125,
+   d:"Tortilla hecha a mano untada de frijoles, dos huevos estrellados bañados en salsa roja, plátano macho y puré de chícharo.",
+   historia:"Nuestra adaptación del clásico yucateco, reeditado con los chícharos y tomates frescos de la tierra poblana.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+  {id:"focaccia-temp-des",n:"Focaccia de temporada",img:"i20.jpg",mom:["desayunos"],carta:"temporada",sec:"Emparedados",precio:120,
+   d:"Pan artesanal untado con chimichurri, mezcla de jitomates con amaranto, espárragos y un huevo estrellado.",
+   historia:"Un tributo a la fusión italo-poblana, horneando focaccia suave rellena con la huerta local.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"dorada-primavera",n:"Dorada de verano",img:"i20.jpg",mom:["desayunos"],carta:"temporada",sec:"Emparedados",precio:125,
+   d:"Pan cúrcuma de la casa relleno de huevo revuelto con jitomate y queso mozzarella, con mermelada de frutos rojos y berros de Huaquechula.",
+   historia:"Destaca por su pan dorado teñido naturalmente con cúrcuma y el contraste agridulce de las mermeladas de estación.",
+   prods:["rafa-elena","antonio","helio"],ing:["Huevo","Jitomate","Frutos rojos"]},
+  {id:"prima",n:"Prima",img:"i20.jpg",mom:["desayunos"],carta:"temporada",sec:"Emparedados",precio:125,
+   d:"Pan caja bañado en huevo, relleno de espárrago asado, roastbeef vegano, jitomate y queso mozzarella.",
+   historia:"Inspirada en el clásico emparedado francés pero transformada con ingredientes libres de crueldad y espárrago de huerto.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"pate-chicharo",n:"Paté de chícharo",img:"i20.jpg",mom:["desayunos"],carta:"temporada",sec:"Emparedados",precio:140,
+   d:"Pan de masa madre con concassé de jitomate, paté de chícharo, aguacate criollo y omelette.",
+   historia:"Nació en nuestra cocina para aprovechar la dulzura natural del chícharo recién cosechado molido finamente con especias.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"tosta-huevo-duro",n:"Tosta de huevo duro",img:"i21.jpg",mom:["desayunos"],carta:"temporada",sec:"Pan y tortilla",precio:130,
+   d:"Pan de masa madre crocante untado con paté de chícharo, roastbeef vegano, aceite de chile y huevo duro.",
+   historia:"Inspiración de las tostas mediterráneas adaptada al apetito generoso de los desayunos poblanos.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+  {id:"tarta-frutos-rojos",n:"Tarta de frutos rojos",img:"i23.jpg",mom:["desayunos","comidas"],carta:"temporada",sec:"Postres",precio:75,
+   d:"Tarta de frutos rojos de temporada, de la panadería de la casa.",
+   historia:"Un postre que solo se elabora cuando las zarzamoras y frutos rojos de Puebla alcanzan su punto máximo de madurez.",
+   prods:["helio"],ing:["Frutos rojos"]},
+
+  /* ---------- DESAYUNOS · TODO EL AÑO ---------- */
+  {id:"cazuela-queso",n:"Cazuela con queso",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:125,
+   d:"Dos huevos estrellados con gratín de queso de cabra y pimientos salteados en comino, servidos en salsa especiada.",
+   historia:"Servido en cazuelita de barro caliente, evoca la tradición de los desayunos de rancho en los valles poblanos.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+  {id:"tostados",n:"Tostados",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:120,
+   d:"Huevos estrellados sobre pan de la casa untado con queso de cabra, berros y cebolla caramelizada con un toque de vino tinto.",
+   historia:"Combinación que nació por casualidad combinando cebollas caramelizadas del día anterior con queso fresco.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+  {id:"rustico",n:"Rústico",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:120,
+   d:"Pan integral artesanal bañado en huevo, untado con queso de cabra en salsa de aceitunas negras, con jitomates asados y albahaca de Zacapechpan.",
+   historia:"Un platillo robusto pensado para reconfortar las mañanas frías Cholultecas.",
+   prods:["rafa-elena","antonio","abraham-rufi"],ing:["Huevo","Jitomate","Espinacas y hierbas"]},
+  {id:"envueltos",n:"Envueltos",img:"i19.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:115,
+   d:"Tortillas de maíz hechas a mano bañadas en huevo, rellenas de queso, espinaca y jitomate.",
+   historia:"Platillo de casa, donde la tortilla recién tirada en el comal abraza el huevo salteado.",
+   prods:["rafa-elena","abraham-rufi","antonio"],ing:["Huevo","Espinacas y hierbas","Jitomate"]},
+  {id:"fresco",n:"Fresco",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:120,
+   d:"Huevos estrellados sobre una torre de queso mozzarella fresco de la región, rodajas de jitomate, aguacate y albahaca de Zacapechpan.",
+   historia:"Inspirado en la ensalada Caprese pero transformado en un desayuno completo con la calidez del huevo de traspatio.",
+   prods:["rafa-elena","antonio","abraham-rufi"],ing:["Huevo","Jitomate","Espinacas y hierbas"]},
+  {id:"revueltos",n:"Revueltos",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:125,
+   d:"Huevos revueltos con queso mozzarella sobre pan untado con salsa de pimiento, aguacate y albahaca de Zacapechpan.",
+   historia:"Los favoritos de la carta diaria por su textura cremosa y el aroma fresco de la albahaca recolectada en la zona.",
+   prods:["rafa-elena","abraham-rufi"],ing:["Huevo","Espinacas y hierbas"]},
+  {id:"taquitos",n:"Taquitos",img:"i19.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:115,
+   d:"Tortillas hechas a mano rellenas de huevo revuelto con queso ahumado, sazonado con concassé de jitomate y jitomates asados.",
+   historia:"Homenaje a los tacos mañaneros que se disfrutan en los mercados de la región.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"florentinos",n:"Florentinos",img:"i17.jpg",mom:["desayunos"],carta:"anual",sec:"Huevos",precio:120,
+   d:"Huevos estrellados sobre pan artesanal de la casa, untado con queso de cabra de San Roque y espinacas salteadas.",
+   historia:"Inspirado en la receta florentina adaptada con queso proveniente de rebaños locales.",
+   prods:["rafa-elena","abraham-rufi"],ing:["Huevo","Espinacas y hierbas"]},
+  {id:"tosta-chorizo",n:"Tosta de chorizo vegano",img:"i21.jpg",mom:["desayunos"],carta:"anual",sec:"Pan y tortilla",precio:130,
+   d:"Pan de masa madre crocante untado con chimichurri, coliflor ahumada, jitomate horneado y chorizo vegano hecho en Recaudo.",
+   historia:"Receta propia donde elaboramos el chorizo a base de semillas y especias tradicionales mexicanas.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"tosta-roastbeef",n:"Tosta de roastbeef vegano",img:"i21.jpg",mom:["desayunos"],carta:"anual",sec:"Pan y tortilla",precio:130,
+   d:"Pan de masa madre crocante con queso de pepita de calabaza, jitomate, roastbeef vegano y chimichurri.",
+   historia:"Una opción sustanciosa basada en plantas con textura firme y ahumada.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"tosta-quesos-veganos",n:"Tosta de quesos veganos",img:"i21.jpg",mom:["desayunos"],carta:"anual",sec:"Pan y tortilla",precio:135,
+   d:"Pan de masa madre con queso de pepita de calabaza y garbanzo, espárragos asados y jitomate cherry.",
+   historia:"Demuestra la riqueza de elaborar fermentos cárnicos y lácteos usando únicamente semillas regionales.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"chilaquiles",n:"Chilaquiles",img:"i19.jpg",mom:["desayunos"],carta:"anual",sec:"Pan y tortilla",precio:125,
+   d:"Totopos de maíz bañados en salsa roja (habanero) o verde (serrano) ¡o ambas!, con crema, cebolla, aguacate, queso añejo y pico de gallo.",
+   historia:"Indispensables en la cocina mexicana; nuestra salsa resalta la acidez perfecta del tomate y jitomate cosechado en Puebla.",
+   prods:["esteban","antonio"],ing:["Cilantro","Jitomate"]},
+  {id:"tacos-requeson",n:"Tacos de requesón",img:"i19.jpg",mom:["desayunos"],carta:"anual",sec:"Pan y tortilla",precio:120,
+   d:"Tortillas hechas a mano rellenas de requesón salteado con pimientos y jitomates asados, aguacate y berros frescos.",
+   historia:"Un platillo ligero que rescata el uso tradicional del requesón de cremería local.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"gado",n:"Gado",img:"i29.jpg",mom:["desayunos"],carta:"anual",sec:"Ensaladas",precio:100,
+   d:"Mezcla de hojas, papa, huevo duro, camote, pepino, ajonjolí caramelizado, aguacate y aderezo de mostaza.",
+   historia:"Inspirado en el Gado-Gado de Indonesia pero reimaginado enteramente con tubérculos y verduras de la milpa.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+  {id:"panqueques",n:"Panqueques",img:"i22.jpg",mom:["desayunos"],carta:"anual",sec:"Lo dulce",precio:125,
+   d:"Panqueque de harina de garbanzo con plátano, bañados en miel de piloncillo, fruta de temporada y mix de semillas.",
+   historia:"Especialidad libre de gluten desarrollada en nuestra panadería para mañanas dulces y nutritivas.",
+   prods:["facundo"],ing:["Miel"]},
+  {id:"pan-frances",n:"Pan francés",img:"i22.jpg",mom:["desayunos"],carta:"anual",sec:"Lo dulce",precio:120,
+   d:"Pan artesanal hecho con mantequilla, miel y canela, acompañado de fruta de temporada y mix de semillas.",
+   historia:"Hecho con nuestro brioche horneado en casa, dorado al comal y aromatizado con canela en rama.",
+   prods:["facundo"],ing:["Miel"]},
+  {id:"tarta-queso",n:"Tarta de queso",img:"i23.jpg",mom:["desayunos","comidas"],carta:"anual",sec:"Postres",precio:75,
+   d:"Tarta de queso de cabra con nueces y miel.",
+   historia:"Su consistencia cremosa y sabor ligeramente ácido proviene del queso fresco artesanal elaborado en la zona.",
+   prods:["facundo"],ing:["Miel"]},
+  {id:"pastel-chocolate",n:"Pastel de chocolate",img:"i23.jpg",mom:["desayunos","comidas"],carta:"anual",sec:"Postres",precio:90,
+   d:"Pastel de chocolate con jamaica y frutos rojos, elaborado con harina de quinoa.",
+   historia:"Orgullo de la casa: utilizamos harina de la quinoa cultivada por Don Mauro en Tepeyahualco.",
+   prods:["mauro","helio"],ing:["Quinoa","Frutos rojos"]},
+  {id:"revueltitos",n:"Revueltitos",img:"i33.jpg",mom:["desayunos"],carta:"anual",sec:"Para los peques",precio:85,
+   d:"Huevo revuelto; agrégale roast beef o jitomate.",
+   historia:"Pensado para consentir a las infancias con ingredientes puros sin aditivos.",
+   prods:["rafa-elena","antonio"],ing:["Huevo","Jitomate"]},
+  {id:"tortita-pizza",n:"Tortita pizza",img:"i33.jpg",mom:["desayunos"],carta:"anual",sec:"Para los peques",precio:80,
+   d:"Pan artesanal relleno de jitomate y espinacas con queso gratinado.",
+   historia:"El sabor de la pizza clásica en un bollito artesanal fácil de disfrutar por los más pequeños.",
+   prods:["abraham-rufi","antonio"],ing:["Espinacas y hierbas","Jitomate"]},
+  {id:"tortita-huevo",n:"Tortita de huevo",img:"i33.jpg",mom:["desayunos"],carta:"anual",sec:"Para los peques",precio:80,
+   d:"Pan artesanal relleno de huevo revuelto con queso mozzarella derretido.",
+   historia:"Sencilla, suave y altamente nutritiva para comenzar la mañana.",
+   prods:["rafa-elena"],ing:["Huevo"]},
+
+  /* ---------- COMIDAS · TEMPORADA ---------- */
+  {id:"ceviche-mango",n:"Ceviche de mango",img:"i26.jpg",mom:["comidas"],carta:"temporada",sec:"Entradas",precio:85,
+   d:"Mango, jícama, sandía y pepino, condimentados con limón, cilantro y cebolla morada.",
+   historia:"Un plato vegetal ultra refrescante que celebra los mangos dulces que llegan durante la temporada.",
+   prods:["esteban"],ing:["Cilantro"]},
+  {id:"nueve-tapas",n:"Nueve tapas",img:"i26.jpg",mom:["comidas"],carta:"temporada",sec:"Entradas",precio:80,
+   d:"Pan artesanal tostado con espárragos y queso de oveja; paté de chícharo con durazno y brotes; hummus con pimiento asado y queso de oveja maduro.",
+   historia:"Diseñado para compartir al centro y degustar la variedad de sabores de la temporada en tres bocados distintos.",
+   prods:["flor"],ing:["Queso de oveja"]},
+  {id:"burrata",n:"Burrata",img:"i26.jpg",mom:["comidas"],carta:"temporada",sec:"Entradas",precio:125,
+   d:"Burrata casera con finas hierbas, servida con una mezcla de jitomates, espárragos asados, emulsión de ajonjolí y cebollitas encurtidas.",
+   historia:"Elaboramos la burrata de manera artesanal y la acompañamos con la cosecha roja de Nextetelco.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"aguacate-relleno",n:"Aguacate relleno",img:"i26.jpg",mom:["comidas"],carta:"temporada",sec:"Entradas",precio:85,
+   d:"Aguacate relleno de amaranto de San Simón Atzitzintla con jitomate y rábanos encurtidos, servido con totopos horneados.",
+   historia:"Homenaje al amaranto, grano sagrado cultivado desde tiempos prehispánicos en las faldas del volcán.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"sopa-en-pan",n:"Sopa en pan",img:"i27.jpg",mom:["comidas"],carta:"temporada",sec:"Sopas",precio:80,
+   d:"Crema de chícharos salteados en vino blanco con queso de oveja, servida dentro de un pan crocante.",
+   historia:"Servir la sopa dentro del pan artesanal horneado el mismo día permite disfrutar hasta el último bocado.",
+   prods:["flor"],ing:["Queso de oveja"]},
+  {id:"pasta-pimientos",n:"Pimientos",img:"i28.jpg",mom:["comidas"],carta:"temporada",sec:"Pastas",precio:120,
+   d:"Pasta en crema de pimiento con queso de pepita de calabaza, espinacas y una mezcla de nueces.",
+   historia:"Crema sedosa 100% vegetal lograda a partir de la emulsiificación de pimientos horneados y pepita de calabaza.",
+   prods:["abraham-rufi"],ing:["Espinacas y hierbas"]},
+  {id:"ens-temporada",n:"Temporada",img:"i29.jpg",mom:["comidas"],carta:"temporada",sec:"Ensaladas",precio:105,
+   d:"Mezcla de hojas con espárragos, frutos rojos, queso de oveja maduro, almendra caramelizada y aderezo de mango.",
+   historia:"Reúne los colores vibrantes del huerto en esta época: verde vivo, rojo brillante y amarillo cálido.",
+   prods:["helio","flor"],ing:["Frutos rojos","Queso de oveja"]},
+  {id:"ens-floral",n:"Floral",img:"i29.jpg",mom:["comidas"],carta:"temporada",sec:"Ensaladas",precio:110,
+   d:"Coliflor, mezcla de jitomates, chícharo, aguacate, mix de nueces y flores con reducción de balsámico.",
+   historia:"Integra flores comestibles cultivadas en la región para aportar belleza y notas florales sutiles al paladar.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"ens-fresca",n:"Fresca de verano",img:"i29.jpg",mom:["comidas"],carta:"temporada",sec:"Ensaladas",precio:110,
+   d:"Mezcla de berros, jitomate, espárragos, queso de cabra y aderezo de mostaza.",
+   historia:"Usa los berros frescos de manantial que crecen en los causes limpios cercanos a Huaquechula.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"ens-huerto",n:"Del huerto",img:"i29.jpg",mom:["comidas"],carta:"temporada",sec:"Ensaladas",precio:110,
+   d:"Espárragos, coliflor, papa, concassé de jitomate y un toque de reducción de balsámico.",
+   historia:"Platillo directo del surco a la mesa, mostrando las hortalizas con muy poca intervención para respetar su sabor puro.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"focaccia-temp-com",n:"Focaccia de temporada",img:"i20.jpg",mom:["comidas"],carta:"temporada",sec:"Emparedados",precio:120,
+   d:"Pan artesanal con paté de chícharo, aguacate criollo, pimientos y jitomates salteados.",
+   historia:"Ideal para las tardes calurosas; sustanciosa, fresca y llena de aceite de oliva y hierbas.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"focaccia-gratinada",n:"Focaccia gratinada",img:"i20.jpg",mom:["comidas"],carta:"temporada",sec:"Emparedados",precio:120,
+   d:"Pan integral con concassé de jitomate, pimientos, espárragos asados, queso mozzarella fresco y arúgula.",
+   historia:"Gratinada levemente al horno de piedra para fundir el queso mozzarella artesanal sobre los espárragos.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"medallon",n:"Medallón",img:"i30.jpg",mom:["comidas"],carta:"temporada",sec:"Principales",precio:170,
+   d:"Medallón de chícharo con pepita de calabaza, acompañado de jitomates y espárragos asados con un toque ahumado.",
+   historia:"Nuestra alternativa proteica vegetal estrella para platos fuertes de la tarde.",
+   prods:["antonio"],ing:["Jitomate"]},
+
+  /* ---------- COMIDAS · TODO EL AÑO ---------- */
+  {id:"crema-jitomate",n:"Crema de jitomate",img:"i27.jpg",mom:["comidas"],carta:"anual",sec:"Sopas",precio:70,
+   d:"Jitomates de Nextetelco asados con un toque de albahaca de Zacapechpan.",
+   historia:"Asamos lentamente los jitomates enteros para concentrar sus azúcares naturales antes de molerlos.",
+   prods:["antonio","abraham-rufi"],ing:["Jitomate","Espinacas y hierbas"]},
+  {id:"pasta-jitomates",n:"Jitomates",img:"i28.jpg",mom:["comidas"],carta:"anual",sec:"Pastas",precio:120,
+   d:"Pasta en salsa de jitomate con chícharos, espárragos asados con ajo y queso mozzarella gratinado.",
+   historia:"La receta de pasta reconfortante por excelencia en Recaudo, presente desde nuestra apertura.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"pasta-picosa",n:"Picosa",img:"i28.jpg",mom:["comidas"],carta:"anual",sec:"Pastas",precio:120,
+   d:"Pasta en salsa arrabiata, pimiento, jitomates asados y un toque de berros frescos y nueces.",
+   historia:"Creada para los amantes del picante suave con el toque característico de nuestros chiles locales.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"dorada",n:"Dorada",img:"i20.jpg",mom:["comidas"],carta:"anual",sec:"Emparedados",precio:135,
+   d:"Pan cúrcuma de la casa relleno de jitomate, espinacas asadas, pepino y queso mozzarella fresco.",
+   historia:"Su pan brillante de cúrcuma ha sido sello distintivo de nuestra barra de emparedados.",
+   prods:["antonio","abraham-rufi"],ing:["Jitomate","Espinacas y hierbas"]},
+  {id:"hamburguesa",n:"Hamburguesa",img:"i34.jpg",mom:["comidas"],carta:"anual",sec:"Emparedados",precio:135,
+   d:"Pan artesanal con paté de chícharo, “carne” de alberjón ahumada en salsa de chipotle-tamarindo, arúgula, jitomate, aguacate criollo y cebolla encurtida. Con papas asadas.",
+   historia:"Desarrollada tras meses de pruebas para lograr una textura perfecta usando alberjón y especias ahumadas.",
+   prods:["antonio"],ing:["Jitomate"]},
+  {id:"rellenos",n:"Rellenos",img:"i30.jpg",mom:["comidas"],carta:"anual",sec:"Principales",precio:165,
+   d:"Pimientos rellenos de arroz, lentejas, verduras salteadas, cacahuate y salsa de jitomate.",
+   historia:"Platillo colorido inspirado en los rellenos festivos tradicionales de las familias poblanas.",
+   prods:["antonio"],ing:["Jitomate"]},
+
+  /* ---------- INGREDIENTES ESTRELLA ---------- */
+  {id:"setas",n:"Setas de Cuanala",img:"i31.jpg",mom:["desayunos","comidas"],carta:"temporada",sec:"Extras y especiales",precio:35,extra:true,
+   d:"Las setas de Janet y Juan, el corazón de nuestros famosos tacos de setas. Disponibles como extra para tu platillo vegano o dentro de los especiales de temporada.",
+   historia:"Cultivadas en la penumbra controlada de Cuanala, llegan a la cocina con menos de 24 horas de haber sido cosechadas.",
+   prods:["janet-juan"],ing:["Setas"]},
+  {id:"nopales",n:"Nopales de Don Jorge",img:"i32.jpg",mom:["comidas"],carta:"temporada",sec:"Extras y especiales",precio:0,
+   d:"Ingrediente estrella de temporada. Cuando llega una buena caja, la cocina decide ese mismo día en qué especial entra: ensalada, guiso o taco.",
+   historia:"El nopal tierno recolectado por Don Jorge aporta la baba natural y el sabor ácido característico de la milpa.",
+   prods:["jorge"],ing:["Nopales"]},
+
+  /* ---------- BEBIDAS ---------- */
+  {id:"cafe-cardamomo",n:"Café sazonado con cardamomo",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:55,
+   d:"Café de Don Miguel sazonado con cardamomo. Pídelo con leche de pepita de calabaza, de avena o semidescremada.",
+   historia:"Inspirado en la tradición del café en Medio Oriente, infusionado con vainas de cardamomo recién abiertas.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"cafe-especiado",n:"Café especiado",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:55,
+   d:"Café con canela, té limón y jengibre.",
+   historia:"Nuestra versión moderna del café de olla, hervido con hierbas frescas de la región.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"americano",n:"Americano",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:45,
+   d:"Café americano de grano de la sierra de Puebla.",
+   historia:"Grano cosechado bajo sombra en la Sierra Norte de Puebla y tostado medio para resaltar sus notas a chocolate.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"espresso",n:"Espresso",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:40,
+   d:"Extracción corta, para probar el grano tal cual llega.",
+   historia:"La esencia pura del grano de Don Miguel extraída a alta presión.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"latte",n:"Latte",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:65,
+   d:"Espresso con leche. Pídelo con leche de pepita de calabaza (+30), de avena o semidescremada.",
+   historia:"Cremoso y reconfortante; recomendamos probarlo con nuestra leche casera de pepita de calabaza.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"capuchino",n:"Capuchino",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:65,
+   d:"Espresso con leche texturizada y espuma.",
+   historia:"El equilibrio clásico entre la fuerza del espresso y la textura sedosa del vapor.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"flat-white",n:"Flat white",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:55,
+   d:"Más café que leche, con microespuma fina.",
+   historia:"Para quienes buscan un sabor a café más acentuado pero mantenido en una taza cremosa.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"cafe-moka",n:"Café moka",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:70,
+   d:"Café con chocolate y leche.",
+   historia:"Elaborado con tablillas de chocolate de mesa criollo molido en la zona.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"frappe",n:"Frappé",img:"i24.jpg",mom:["bebidas"],carta:"anual",sec:"Café y chocolate",precio:80,
+   d:"Café, chocolate, moka, té chai, matcha o fruta de temporada.",
+   historia:"Bebida helada licuada al momento para las tardes soleadas en Cholula.",
+   prods:["miguel"],ing:["Café"]},
+  {id:"te-primavera",n:"Té de temporada",img:"i25.jpg",mom:["bebidas"],carta:"temporada",sec:"Infusiones y tés",precio:60,
+   d:"Té limón con campanita azul, leche y miel.",
+   historia:"Sorprende por su color azul natural proporcionado por la flor de campanita azul e infusionado con miel de Don Facundo.",
+   prods:["facundo"],ing:["Miel"]},
+  {id:"jengibre-dorado",n:"Picante de jengibre dorado",img:"i25.jpg",mom:["bebidas"],carta:"anual",sec:"Infusiones y tés",precio:60,
+   d:"Jengibre, té limón, cúrcuma y miel.",
+   historia:"Infusión revitalizante cargada de antioxidantes y picor reconfortante.",
+   prods:["facundo"],ing:["Miel"]},
+  {id:"jengibre",n:"Picante de jengibre",img:"i25.jpg",mom:["bebidas"],carta:"anual",sec:"Infusiones y tés",precio:50,
+   d:"Jengibre, té limón, especias y miel.",
+   historia:"Remedio tradicional casero convertido en la infusión favorita de nuestros comensales.",
+   prods:["facundo"],ing:["Miel"]}
 ];
 
-const calendario = [
-  {m:"Enero",i:["Nopal","Hierbas de invierno","Quinoa"]},
-  {m:"Febrero",i:["Nopal tierno","Espinacas","Huevo"]},
-  {m:"Marzo",i:["Chícharo","Hierbas frescas","Cilantro"]},
-  {m:"Abril",i:["Chícharo","Calabaza tierna","Flor de calabaza"]},
-  {m:"Mayo",i:["Calabaza","Jitomate","Miel"]},
-  {m:"Junio",i:["Setas","Maíz tierno","Hierbas"]},
-  {m:"Julio",i:["Setas","Elote","Quelites"]},
-  {m:"Agosto",i:["Chile poblano","Nuez","Frutos de temporada"]},
-  {m:"Septiembre",i:["Setas","Chile en nogada","Nopal","Chía"]},
-  {m:"Octubre",i:["Quinoa","Calabaza de castilla","Maíz"]},
-  {m:"Noviembre",i:["Quinoa","Chía","Nopal"]},
-  {m:"Diciembre",i:["Hierbas","Huevo","Frutos secos"]}
+/* platillos destacados de jitomate para la sección "un ingrediente" */
+const rutaJitomate = ["crema-jitomate","pasta-jitomates","burrata","fresco","hamburguesa"];
+
+/* ESTACIONES DEL AÑO (VERANO ES LA ESTACIÓN ACTUAL) */
+const estaciones = [
+  {
+    nombre: "Primavera",
+    meses: "Marzo – Mayo",
+    actual: false,
+    productos: ["Espárragos frescos", "Chícharos dulces", "Mango y flores", "Cilantro criollo"]
+  },
+  {
+    nombre: "Verano",
+    meses: "Junio – Agosto",
+    actual: true,
+    productos: ["Brote de setas", "Zarzamoras silvestres", "Jitomate de Nextetelco", "Miel de floración"]
+  },
+  {
+    nombre: "Otoño",
+    meses: "Septiembre – Noviembre",
+    actual: false,
+    productos: ["Quinoa de Tepeyahualco", "Tejocote y nuez", "Semilla de chía", "Nopales maduros"]
+  },
+  {
+    nombre: "Invierno",
+    meses: "Diciembre – Febrero",
+    actual: false,
+    productos: ["Hierbas de olor", "Huevo de traspatio", "Quesos de oveja", "Café de la Sierra"]
+  }
 ];
 
 const ingredientesVoto = [
-  {id:"setas",n:"Setas",base:34},{id:"nopal",n:"Nopal",base:28},
-  {id:"quinoa",n:"Quinoa",base:14},{id:"hierbas",n:"Hierbas",base:11},
-  {id:"calabaza",n:"Calabaza",base:13}
+  {id:"setas",n:"Setas de Cuanala",base:34},{id:"nopales",n:"Nopales de Don Jorge",base:28},
+  {id:"quinoa",n:"Quinoa de Tepeyahualco",base:16},{id:"zarzamora",n:"Zarzamora de Helio",base:13},
+  {id:"tejocote",n:"Tejocote de Don Facundo",base:11}
 ];
 
-/* --------- imagen con marcador si falta --------- */
-function img(src,alt){
-  return `<img src="${src}" alt="${alt}" loading="lazy">`;
+/* =========================================================
+   UTILIDADES Y MANEJO DEL MENÚ
+   ========================================================= */
+function img(src,alt){return `<img src="${src}" alt="${alt}" loading="lazy">`;}
+function precioTexto(p){
+  if(p.id==="nopales") return "Según la cosecha";
+  if(p.extra) return "+$"+p.precio;
+  return "$"+p.precio;
 }
+
 document.addEventListener('error',e=>{
   const el=e.target;
   if(el.tagName!=='IMG'||el.dataset.reemplazado) return;
@@ -713,186 +1278,318 @@ document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',(
 }));
 addEventListener('scroll',()=>nav.classList.toggle('fija',scrollY>12));
 
-/* ---------------- menú + filtros ---------------- */
-const rejilla=document.getElementById('rejillaMenu');
-const vacio=document.getElementById('vacio');
-const estado={momento:'todo',ingrediente:'todo',productor:'todo'};
+/* ---------------- CLASIFICACIÓN Y PESTAÑAS Y SISTEMA LIGERO ---------------- */
+const estado = { momento: 'todo', carta: 'todo', categoria: 'todo', productor: 'todo' };
+const rejilla = document.getElementById('rejillaMenu');
+const vacio = document.getElementById('vacio');
+const conteo = document.getElementById('conteo');
 
-function tarjeta(p){
-  return `<button class="platillo aparece dentro" data-id="${p.id}">
-    <span class="platillo-foto">${img(p.img,p.nombre)}<span class="etiqueta">${p.etiqueta}</span></span>
-    <span class="platillo-cuerpo">
-      <span class="t3">${p.nombre}</span>
-      <span class="dsc">${p.desc}</span>
-      <span class="meta">
-        <span>Ingrediente: <b>${p.ingrediente}</b></span>
-        <span class="productor">${p.casa}</span>
-        <span class="precio">Precio por definir</span>
-      </span>
-    </span>
-  </button>`;
-}
-function pintarMenu(){
-  const lista=platillos.filter(p=>
-    (estado.momento==='todo'||p.momento===estado.momento)&&
-    (estado.ingrediente==='todo'||p.ingrediente===estado.ingrediente)&&
-    (estado.productor==='todo'||p.productor===estado.productor));
-  rejilla.innerHTML=lista.map(tarjeta).join('');
-  vacio.hidden=lista.length>0;
-}
-document.querySelectorAll('#filtros .grupo-filtro').forEach(g=>{
-  g.addEventListener('click',e=>{
-    const b=e.target.closest('.chip'); if(!b) return;
-    g.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));
-    estado[g.dataset.grupo]=b.dataset.valor;
-    pintarMenu();
+// Extraer categorías dinámicamente para las pestañas (Tabs)
+const categoriasSet = new Set(platillos.map(p => p.sec));
+const barraCategorias = document.getElementById('barraCategorias');
+
+function renderCategoriasTabs() {
+  let html = `<button class="tab-cat" data-cat="todo" aria-selected="true">Ver todo</button>`;
+  
+  // Agregar también Filtro de Productores con Nombres Explícitos
+  Object.entries(productores).forEach(([clave, p]) => {
+    html += `<button class="tab-cat" data-prod="${clave}" aria-selected="false">${p.nombre} (${p.producto})</button>`;
   });
+
+  categoriasSet.forEach(cat => {
+    html += `<button class="tab-cat" data-cat="${cat}" aria-selected="false">${cat}</button>`;
+  });
+  barraCategorias.innerHTML = html;
+}
+renderCategoriasTabs();
+
+function pintarMenu() {
+  const lista = platillos.filter(p =>
+    (estado.momento === 'todo' || p.mom.includes(estado.momento)) &&
+    (estado.carta === 'todo' || p.carta === estado.carta) &&
+    (estado.categoria === 'todo' || p.sec === estado.categoria) &&
+    (estado.productor === 'todo' || p.prods.includes(estado.productor))
+  );
+
+  if (lista.length === 0) {
+    rejilla.innerHTML = '';
+    vacio.hidden = false;
+    conteo.textContent = '0 platillos encontrados.';
+    return;
+  }
+
+  vacio.hidden = true;
+  conteo.textContent = lista.length + (lista.length === 1 ? ' platillo en esta selección.' : ' platillos en esta selección.');
+
+  // Agrupar por sección
+  const secciones = {};
+  lista.forEach(p => {
+    if (!secciones[p.sec]) secciones[p.sec] = [];
+    secciones[p.sec].push(p);
+  });
+
+  let html = '';
+  for (const [seccion, items] of Object.entries(secciones)) {
+    html += `<div class="categoria-seccion aparece dentro">
+      <h3 class="categoria-titulo">${seccion}</h3>
+      <div class="lista-menu">`;
+    
+    items.forEach(p => {
+      html += `
+        <button class="item-menu" data-id="${p.id}">
+          <div class="item-encabezado">
+            <span class="item-nombre">
+              ${p.n}
+              ${p.carta === 'temporada' ? '<span class="item-badge-temp">Temporada</span>' : ''}
+            </span>
+            <span class="item-linea"></span>
+            <span class="item-precio">${precioTexto(p)}</span>
+          </div>
+          <div class="item-desc">${p.d}</div>
+        </button>
+      `;
+    });
+
+    html += `</div></div>`;
+  }
+
+  rejilla.innerHTML = html;
+}
+
+// Event Listeners para Filtros Subtiles
+document.getElementById('grupoMomento').addEventListener('click', e => {
+  const b = e.target.closest('.selector-discreto'); if (!b) return;
+  document.querySelectorAll('#grupoMomento .selector-discreto').forEach(o => o.setAttribute('aria-pressed', o === b));
+  estado.momento = b.dataset.valor;
+  pintarMenu();
 });
+
+document.getElementById('grupoCarta').addEventListener('click', e => {
+  const b = e.target.closest('.selector-discreto'); if (!b) return;
+  document.querySelectorAll('#grupoCarta .selector-discreto').forEach(o => o.setAttribute('aria-pressed', o === b));
+  estado.carta = b.dataset.valor;
+  pintarMenu();
+});
+
+barraCategorias.addEventListener('click', e => {
+  const b = e.target.closest('.tab-cat'); if (!b) return;
+  document.querySelectorAll('.tab-cat').forEach(o => o.setAttribute('aria-selected', o === b));
+  
+  if (b.dataset.cat) {
+    estado.categoria = b.dataset.cat;
+    estado.productor = 'todo';
+  } else if (b.dataset.prod) {
+    estado.productor = b.dataset.prod;
+    estado.categoria = 'todo';
+  }
+  pintarMenu();
+});
+
 pintarMenu();
+document.getElementById('numPlat').textContent = platillos.length + ' platillos y bebidas';
+document.getElementById('numProd').textContent = Object.keys(productores).length + ' familias';
 
 /* ---------------- modal ---------------- */
-const telon=document.getElementById('telon');
-const modalFoto=document.getElementById('modalFoto');
-const modalCuerpo=document.getElementById('modalCuerpo');
-let ultimoFoco=null;
+const telon = document.getElementById('telon');
+const modalFoto = document.getElementById('modalFoto');
+const modalCuerpo = document.getElementById('modalCuerpo');
+let ultimoFoco = null;
 
-rejilla.addEventListener('click',e=>{
-  const t=e.target.closest('.platillo'); if(!t) return;
-  const p=platillos.find(x=>x.id===t.dataset.id);
-  ultimoFoco=t;
-  modalFoto.innerHTML=img(p.img,p.nombre);
-  modalCuerpo.innerHTML=`
-    <p class="rotulo">${p.etiqueta}</p>
-    <h3 id="tituloModal">${p.nombre}</h3>
-    <p style="color:var(--tinta-suave);margin-top:10px">${p.desc}</p>
-    <p>${p.historia}</p>
+function abrirPlatillo(p, origen) {
+  ultimoFoco = origen || null;
+  modalFoto.innerHTML = img(p.img, p.n);
+  modalCuerpo.innerHTML = `
+    <p class="rotulo">${p.sec} · ${p.carta === 'temporada' ? 'Menú de temporada' : 'Menú de todo el año'}</p>
+    <h3 id="tituloModal">${p.n}</h3>
+    <p style="color:var(--tinta-suave);margin-top:10px">${p.d}</p>
+    
+    ${p.historia ? `
+      <div class="historia-platillo">
+        <b>Reseña / Historia del platillo:</b>
+        ${p.historia}
+      </div>
+    ` : ''}
+
     <div class="ficha">
-      <div><span class="k">Ingrediente</span><span>${p.ingrediente}</span></div>
-      <div><span class="k">Productor</span><span>${p.casa}</span></div>
-      <div><span class="k">Origen</span><span>${p.productor}</span></div>
-      <div><span class="k">Cómo llegó</span><span>${p.viaje}</span></div>
-      <div><span class="k">Precio</span><span>Por definir · platillo de demostración</span></div>
+      <div><span class="k">Momento</span><span>${p.mom.map(m => m[0].toUpperCase() + m.slice(1)).join(' y ')}</span></div>
+      <div><span class="k">Ingredientes</span><span class="cinta">${p.ing.map(i => `<span class="pastilla">${i}</span>`).join('')}</span></div>
+      <div><span class="k">Precio</span><span>${precioTexto(p)} MXN</span></div>
+      <div><span class="k">Productores</span>
+        <span class="prod-lista">${p.prods.map(k => {
+          const v = productores[k];
+          return `<span><b>${v.nombre}</b> ·${v.producto}<br><span style="color:var(--tinta-suave);font-size:.88rem">${v.lugar}</span>${v.video ? `<br><a class="mini video" href="${v.video}" target="_blank" rel="noopener">Ver su historia ▸</a>` : ''}</span>`;
+        }).join('')}</span></div>
     </div>`;
   telon.classList.add('visible');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
   document.getElementById('btnCerrar').focus();
-});
-function cerrar(){
-  telon.classList.remove('visible');
-  document.body.style.overflow='';
-  if(ultimoFoco) ultimoFoco.focus();
 }
-document.getElementById('btnCerrar').addEventListener('click',cerrar);
-telon.addEventListener('click',e=>{if(e.target===telon) cerrar();});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&telon.classList.contains('visible')) cerrar();});
 
-/* ---------------- mapa ---------------- */
-const tarjetaProd=document.getElementById('tarjetaProd');
-function pintarProductor(clave){
-  const p=productores[clave];
-  tarjetaProd.innerHTML=`${img(p.img,p.nombre)}<div class="txt"><h3>${p.nombre}</h3><p class="lugar">${p.lugar}</p><p>${p.texto}</p></div>`;
+rejilla.addEventListener('click', e => {
+  const t = e.target.closest('.item-menu'); if (!t) return;
+  abrirPlatillo(platillos.find(x => x.id === t.dataset.id), t);
+});
+
+function cerrar() {
+  telon.classList.remove('visible');
+  document.body.style.overflow = '';
+  if (ultimoFoco) ultimoFoco.focus();
 }
-document.querySelectorAll('.punto').forEach(b=>{
-  b.addEventListener('click',()=>{
-    document.querySelectorAll('.punto').forEach(o=>o.setAttribute('aria-pressed',o===b));
+document.getElementById('btnCerrar').addEventListener('click', cerrar);
+telon.addEventListener('click', e => { if (e.target === telon) cerrar(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && telon.classList.contains('visible')) cerrar(); });
+
+/* ---------------- mapa interactivo + rejilla de productores ---------------- */
+const tarjetaProd = document.getElementById('tarjetaProd');
+function pintarProductor(clave) {
+  const v = productores[clave];
+  const n = platillos.filter(p => p.prods.includes(clave)).length;
+  tarjetaProd.innerHTML = `${img(v.img, v.nombre + ', productor de ' + v.producto)}
+    <div class="txt">
+      <h3>${v.nombre}</h3>
+      <p class="lugar">${v.lugar} · ${v.producto}</p>
+      <p>${v.texto}</p>
+      <p style="margin-top:10px"><span class="insignia">${n} platillo${n === 1 ? '' : 's'} en la carta</span></p>
+      ${v.video ? `<p style="margin:8px 0 0"><a class="mini video" href="${v.video}" target="_blank" rel="noopener">Ver su video ▸</a></p>` : ''}
+    </div>`;
+}
+document.querySelectorAll('.punto').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.punto').forEach(o => o.setAttribute('aria-pressed', o === b));
     pintarProductor(b.dataset.prod);
   });
 });
-document.querySelector('.punto').setAttribute('aria-pressed','true');
-pintarProductor('cuanala');
+document.querySelector('.punto').setAttribute('aria-pressed', 'true');
+pintarProductor('janet-juan');
 
-/* ---------------- nopal ---------------- */
-const listaNopal=document.getElementById('listaNopal');
-const escena=document.getElementById('escenaNopal');
-const pie=document.getElementById('pieNopal');
-listaNopal.innerHTML=nopalPlatos.map((p,i)=>
-  `<li role="presentation"><button role="tab" aria-selected="${i===0}" data-i="${i}">${p.n}<span class="marca-sel">Ver</span></button></li>`).join('');
-nopalPlatos.forEach((p,i)=>{
-  const el=document.createElement('img');
-  el.src=p.img; el.alt=p.n; el.loading='lazy';
-  if(i===0) el.classList.add('activa');
-  el.addEventListener('error',()=>{el.style.display='none'});
-  escena.insertBefore(el,pie);
+document.getElementById('rejillaProd').innerHTML = Object.entries(productores).map(([k, v]) => {
+  const n = platillos.filter(p => p.prods.includes(k)).length;
+  return `<article class="tarjeta-prod aparece">
+    ${img(v.img, v.nombre + ', productor de ' + v.producto)}
+    <div class="txt">
+      <h3>${v.nombre}</h3>
+      <p class="lugar">${v.producto} · ${v.lugar}</p>
+      <p class="des">${v.texto}</p>
+      <div class="acciones">
+        <button class="mini" data-ver="${k}">Ver ${n} platillo${n === 1 ? '' : 's'}</button>
+        ${v.video ? `<a class="mini video" href="${v.video}" target="_blank" rel="noopener">Video ▸</a>` : ''}
+      </div>
+    </div>
+  </article>`;
+}).join('');
+
+document.getElementById('rejillaProd').addEventListener('click', e => {
+  const b = e.target.closest('[data-ver]'); if (!b) return;
+  const k = b.dataset.ver;
+  estado.productor = k; estado.momento = 'todo'; estado.carta = 'todo'; estado.categoria = 'todo';
+  
+  pintarMenu();
+  document.getElementById('menu').scrollIntoView({behavior:'smooth'});
 });
-function pintarNopal(i){
-  escena.querySelectorAll('img').forEach((el,j)=>el.classList.toggle('activa',i===j));
-  pie.innerHTML=`<h3>${nopalPlatos[i].n}</h3><p>${nopalPlatos[i].d}</p>`;
-  listaNopal.querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-selected',i===j));
+
+/* ---------------- un ingrediente: jitomate ---------------- */
+const listaJ = document.getElementById('listaJitomate');
+const escenaJ = document.getElementById('escenaJitomate');
+const pieJ = document.getElementById('pieJitomate');
+const platosJ = rutaJitomate.map(id => platillos.find(p => p.id === id));
+
+listaJ.innerHTML = platosJ.map((p, i) =>
+  `<li role="presentation"><button role="tab" aria-selected="${i === 0}" data-i="${i}">${p.n}<span class="marca-sel">${p.sec}</span></button></li>`).join('');
+
+platosJ.forEach((p, i) => {
+  const el = document.createElement('img');
+  el.src = p.img; el.alt = p.n; el.loading = 'lazy';
+  if (i === 0) el.classList.add('activa');
+  el.addEventListener('error', () => { el.style.display = 'none' });
+  escenaJ.insertBefore(el, pieJ);
+});
+
+function pintarJitomate(i) {
+  escenaJ.querySelectorAll('img').forEach((el, j) => el.classList.toggle('activa', i === j));
+  pieJ.innerHTML = `<h3>${platosJ[i].n}</h3><p>${platosJ[i].d}</p>`;
+  listaJ.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-selected', i === j));
 }
-listaNopal.addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(b) pintarNopal(+b.dataset.i);
-});
-pintarNopal(0);
 
-/* ---------------- calendario ---------------- */
-const mesActual=new Date().getMonth();
-document.getElementById('tira').innerHTML=calendario.map((c,i)=>
-  `<article class="mes${i===mesActual?' actual':''}">
-     <h3>${c.m}</h3>
-     <ul>${c.i.map(x=>`<li>${x}</li>`).join('')}</ul>
-     ${i===mesActual?'<span class="aqui">Temporada actual</span>':''}
-   </article>`).join('');
-const actual=document.querySelector('.mes.actual');
-if(actual) actual.scrollIntoView({block:'nearest',inline:'center'});
+listaJ.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (b) pintarJitomate(+b.dataset.i);
+});
+pintarJitomate(0);
+
+/* ---------------- CALENDARIO DE 4 ESTACIONES ---------------- */
+document.getElementById('estacionesGrid').innerHTML = estaciones.map(e => `
+  <article class="tarjeta-estacion${e.actual ? ' actual' : ''}">
+    <div class="estacion-encabezado">
+      <h3 class="estacion-titulo">${e.nombre}</h3>
+      <span class="estacion-meses">${e.meses}</span>
+    </div>
+    <ul class="estacion-lista">
+      ${e.productos.map(p => `<li>• ${p}</li>`).join('')}
+    </ul>
+    ${e.actual ? '<span class="estacion-badge">Estación actual</span>' : ''}
+  </article>
+`).join('');
 
 /* ---------------- encuesta ---------------- */
-const cajaVotos=document.getElementById('votos');
-let elegido=null, yaVoto=false;
-cajaVotos.innerHTML=ingredientesVoto.map(v=>
+const cajaVotos = document.getElementById('votos');
+let elegido = null, yaVoto = false;
+cajaVotos.innerHTML = ingredientesVoto.map(v =>
   `<button class="voto" data-id="${v.id}" aria-pressed="false">
      <span class="barra"></span><span class="nombre">${v.n}</span><span class="pct"></span>
    </button>`).join('');
-cajaVotos.addEventListener('click',e=>{
-  const b=e.target.closest('.voto'); if(!b||yaVoto) return;
-  elegido=b.dataset.id;
-  cajaVotos.querySelectorAll('.voto').forEach(o=>o.setAttribute('aria-pressed',o===b));
+
+cajaVotos.addEventListener('click', e => {
+  const b = e.target.closest('.voto'); if (!b || yaVoto) return;
+  elegido = b.dataset.id;
+  cajaVotos.querySelectorAll('.voto').forEach(o => o.setAttribute('aria-pressed', o === b));
 });
-document.getElementById('btnVotar').addEventListener('click',()=>{
-  const msg=document.getElementById('confirmaVoto');
-  if(!elegido){ msg.textContent='Elige primero un ingrediente de la lista.'; msg.classList.add('visible'); return; }
-  yaVoto=true;
-  const total=ingredientesVoto.reduce((s,v)=>s+v.base,0)+1;
+
+document.getElementById('btnVotar').addEventListener('click', () => {
+  const msg = document.getElementById('confirmaVoto');
+  if (!elegido) { msg.textContent = 'Elige primero un ingrediente de la lista.'; msg.classList.add('visible'); return; }
+  yaVoto = true;
+  const total = ingredientesVoto.reduce((s, v) => s + v.base, 0) + 1;
   cajaVotos.classList.add('resultados');
-  ingredientesVoto.forEach(v=>{
-    const el=cajaVotos.querySelector(`[data-id="${v.id}"]`);
-    const pct=Math.round(((v.base+(v.id===elegido?1:0))/total)*100);
-    el.querySelector('.barra').style.width=pct+'%';
-    el.querySelector('.pct').textContent=pct+'%';
+  ingredientesVoto.forEach(v => {
+    const el = cajaVotos.querySelector(`[data-id="${v.id}"]`);
+    const pct = Math.round(((v.base + (v.id === elegido ? 1 : 0)) / total) * 100);
+    el.querySelector('.barra').style.width = pct + '%';
+    el.querySelector('.pct').textContent = pct + '%';
   });
-  const nombre=ingredientesVoto.find(v=>v.id===elegido).n;
-  msg.textContent='Voto registrado: '+nombre+'. Lo platicamos con los productores antes del próximo cambio de menú.';
+  const nombre = ingredientesVoto.find(v => v.id === elegido).n;
+  msg.textContent = 'Voto registrado: ' + nombre + '. Lo platicamos con los productores antes del próximo cambio de menú.';
   msg.classList.add('visible');
-  document.getElementById('btnVotar').textContent='Gracias por votar';
-  document.getElementById('btnVotar').disabled=true;
+  document.getElementById('btnVotar').textContent = 'Gracias por votar';
+  document.getElementById('btnVotar').disabled = true;
 });
 
 /* ---------------- suscripción ---------------- */
-let canal='correo';
-const entrada=document.getElementById('contacto');
-document.getElementById('canal').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b) return;
-  canal=b.dataset.canal;
-  document.querySelectorAll('#canal button').forEach(o=>o.setAttribute('aria-pressed',o===b));
-  if(canal==='correo'){entrada.type='email';entrada.placeholder='tu@correo.com';entrada.setAttribute('aria-label','Tu correo electrónico');}
-  else{entrada.type='tel';entrada.placeholder='222 000 0000';entrada.setAttribute('aria-label','Tu número de WhatsApp');}
-  entrada.value='';
+let canal = 'correo';
+const entrada = document.getElementById('contacto');
+document.getElementById('canal').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  canal = b.dataset.canal;
+  document.querySelectorAll('#canal button').forEach(o => o.setAttribute('aria-pressed', o === b));
+  if (canal === 'correo') { entrada.type = 'email'; entrada.placeholder = 'tu@correo.com'; entrada.setAttribute('aria-label', 'Tu correo electrónico'); }
+  else { entrada.type = 'tel'; entrada.placeholder = '222 000 0000'; entrada.setAttribute('aria-label', 'Tu número de WhatsApp'); }
+  entrada.value = '';
 });
-document.getElementById('btnSuscribir').addEventListener('click',()=>{
-  const m=document.getElementById('confirmaSub');
-  const v=entrada.value.trim();
-  const ok=canal==='correo'?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v):v.replace(/\D/g,'').length>=10;
-  m.textContent=ok
-    ? (canal==='correo'?'Listo, te escribiremos al cambiar la temporada.':'Listo, te avisamos por WhatsApp cuando cambie la carta.')
-    : (canal==='correo'?'Escribe un correo válido para poder avisarte.':'Escribe un número de 10 dígitos para poder avisarte.');
+
+document.getElementById('btnSuscribir').addEventListener('click', () => {
+  const m = document.getElementById('confirmaSub');
+  const v = entrada.value.trim();
+  const ok = canal === 'correo' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : v.replace(/\D/g, '').length >= 10;
+  m.textContent = ok
+    ? (canal === 'correo' ? 'Listo, te escribiremos al cambiar la temporada.' : 'Listo, te avisamos por WhatsApp cuando cambie la carta.')
+    : (canal === 'correo' ? 'Escribe un correo válido para poder avisarte.' : 'Escribe un número de 10 dígitos para poder avisarte.');
   m.classList.add('visible');
-  if(ok) entrada.value='';
+  if (ok) entrada.value = '';
 });
 
 /* ---------------- entradas al scroll ---------------- */
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('dentro');io.unobserve(e.target);}});
-},{threshold:.14});
-document.querySelectorAll('.aparece').forEach(el=>io.observe(el));
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('dentro'); io.unobserve(e.target); } });
+}, { threshold: .14 });
+document.querySelectorAll('.aparece').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
